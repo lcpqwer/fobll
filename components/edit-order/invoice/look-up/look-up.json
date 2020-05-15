@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "edit": "/components/edit-order/invoice/edit-lookUp/edit-lookUp"
+    }
+}

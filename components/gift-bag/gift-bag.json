@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "wImg": "/components/widthFix-image/widthFix-image"
+    }
+}

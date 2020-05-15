@@ -1,0 +1,26 @@
+<!--components/loading/loading.wxml-->
+<view class="mask" wx:if="{{show}}">
+    <view class="main">
+        <!-- <image src="/static/loading.gif" class="loading"></image> -->
+        <view class="uni-load-more__img">
+            <view class="load1 load">
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            </view>
+            <view class="load2 load">
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            </view>
+            <view class="load3 load">
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+                <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            </view>
+        </view>
+    </view>
+</view>

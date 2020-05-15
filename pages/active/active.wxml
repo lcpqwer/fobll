@@ -1,0 +1,30 @@
+<!--pages/active/active.wxml-->
+<view id="activity">
+    <user-top center="center" id="userTop" />
+</view>
+<swiper previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}" current="{{currentSwiperIndex}}" circular="{{circular}}" bindchange="swiperBindchange">
+    <block wx:for="{{activeList}}" wx:key="index">
+        <swiper-item data-id="{{item.Id}}" bindtap="toActive">
+            <view class="box {{currentSwiperIndex === index ? 'zoom-in': 'zoom-out'}}">
+                <image wx:if="{{item.type==1}}" class="have-sginup" src="{{rootUrl + 'have-sginup.png'}}" mode="widthFix"></image>
+                <image src="{{item.cover_img}}" class="slide-image" mode="aspectFill"></image>
+                <view class="title">{{item.name}}</view>
+                <view class="info">活动时间：{{item.time}}</view>
+                <view class="info">活动地点：{{item.address}}</view>
+                <view class="info">剩余名额：{{item.surplus_quota}}</view>
+                <view class="info money">活动经费：¥{{item.single_amount}}/人</view>
+            </view>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="btn-box">
+    <view>
+        <view class="btn" bindtap="sginUp" wx:if="{{activeList[currentSwiperIndex].type==1}}">
+            新增报名
+        </view>
+        <view class="btn" bindtap="sginUp" wx:if="{{activeList[currentSwiperIndex].type==2}}">
+            立即报名
+        </view>
+    </view>
+
+</view>

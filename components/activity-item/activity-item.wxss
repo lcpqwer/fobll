@@ -1,0 +1,6 @@
+/* components/activity-item/activity-item.wxss */
+image {
+  /* width: 100%; */
+  /* margin-bottom: 40rpx; */
+  /* border-radius: 30rpx; */
+}

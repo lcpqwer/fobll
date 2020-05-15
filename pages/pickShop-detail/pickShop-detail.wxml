@@ -1,0 +1,79 @@
+<!--pages/pickShop-detail/pickShop-detail.wxml-->
+<view id="pickDetail">
+    <view class="state" wx:if="{{pickItem.state==1}}">等待卖家发货</view>
+    <view class="state" wx:if="{{pickItem.state==2}}">已确认收货</view>
+    <view class="state" wx:if="{{pickItem.state==3}}">卖家已发货，待确认收货</view>
+    <view class="rest" wx:if="{{pickItem.state==3}}">还剩{{endTime}}订单自动确认收货</view>
+    <view class="box state-box" wx:if="{{pickItem.state==3}}">
+        <view class="top">
+            <view class="detail">礼品已发货，等待确认收货</view>
+            <view class="c-num">快递单号为：{{pickItem.courier_number}}</view>
+        </view>
+        <view class="bottom" wx:if="{{pickItem.state==1 || pickItem.state==3}}">
+            <view class="btn" bindtap="checkMesg">查看物流</view>
+            <!-- <view class="btn" bindtap="okAcceptGoods">确认收货</view> -->
+        </view>
+    </view>
+    <view class="box info-box">
+        <view class="info" wx:if="{{pickItem.state!=1}}">
+            <view class="nav">发货日期：</view>
+            <view class="content">{{pickItem.delivergoods_time}}</view>
+        </view>
+        <view class="info">
+            <view class="nav">收货信息：</view>
+            <view class="content">
+                <view>{{pickItem.pickup_address}}</view>
+                <view>{{pickItem.pickup_name}} {{pickItem.pickup_phone}}</view>
+            </view>
+        </view>
+        <view class="info" wx:if="{{pickItem.state!=1}}">
+            <view class="nav">快递单号：</view>
+            <view class="content">{{pickItem.courier_number}}</view>
+        </view>
+        <view class="info" wx:if="{{pickItem.state!=1}}">
+            <view class="nav">配送方式：</view>
+            <view class="content">{{pickItem.courier_company}}</view>
+        </view>
+    </view>
+    <view class="box shop-box">
+        <view class="img">
+            <!-- <widthFix-image src="{{pickItem.img}}" mode="widthFix" /> -->
+            <image src="{{pickItem.img}}" mode="widthFix"></image>
+        </view>
+        <view class="info">
+            <view class="title">{{pickItem.name}}</view>
+            <view class="type-box">
+                <text class="type">{{pickItem.label}}</text>
+            </view>
+            <view class="num">
+                x {{pickItem.num}}
+            </view>
+        </view>
+    </view>
+    <view class="box info-box">
+        <view class="info">
+            <view class="nav">订单编号：</view>
+            <view class="content">{{pickItem.ordid}}</view>
+        </view>
+        <view class="info">
+            <view class="nav">支付方式：</view>
+            <view class="content" wx:if="{{pickItem.payment_type==1}}">支付宝支付</view>
+            <view class="content" wx:if="{{pickItem.payment_type==2}}">微信支付</view>
+            <view class="content" wx:if="{{pickItem.payment_type==3}}">会费支付</view>
+            <view class="content" wx:if="{{pickItem.payment_type==4}}">微信会费混合支付</view>
+            <view class="content" wx:if="{{pickItem.payment_type==5}}">对公转账</view>
+        </view>
+        <view class="info">
+            <view class="nav">下单时间：</view>
+            <view class="content">{{pickItem.ordtime}}</view>
+        </view>
+    </view>
+
+</view>
+<view class="bottom fix">
+    <view class="btn" wx:if="{{pickItem.state!=2}}"><button class="kefu" open-type="contact" size="mini" style="font-size:25rpx">申请售后</button></view>
+    <view class="btn" bindtap="warnGoods" wx:if="{{pickItem.state == 1}}">提醒发货</view>
+    <view class="btn" bindtap="checkMesg" wx:if="{{pickItem.state == 3}}">查看物流</view>
+    <view class="btn" bindtap="okAcceptGoods" wx:if="{{pickItem.state==3}}">确认收货</view>
+    <view class="btn" wx:if="{{pickItem.state==2}}">已确认收货</view>
+</view>

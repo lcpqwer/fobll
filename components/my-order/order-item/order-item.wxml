@@ -1,0 +1,124 @@
+<!--components/my-order/order-item/order-item.wxml-->
+<view class="box">
+    <view class="top">
+        <view class="top">
+            <view class="time">{{order.ordtimeFormat}}</view>
+            <!-- 折扣订单状态
+                    交易状态
+                        1、交易关闭
+                        交易正常
+                            付款状态
+                                未付款
+                                    审核状态
+                                        2、审核中
+                                        未审核
+                                            3、未付款
+                                已付款
+                                    发货状态
+                                        4、待发货
+                                        已发货
+                                            收货状态
+                                                5、待收货
+                                                6、已收货（交易完成） -->
+            <view class="state" wx:if="{{order.order_type == 1}}">{{order.Invalid == 1?'交易关闭':order.state == 0?'审核中':order.ordstatus == 0?'待付款':order.shipping_status != 0?'待发货':order.takeover != 1? '待确认收货':'交易完成'}}</view>
+            <!-- 礼包订单状态
+                    交易状态
+                        1、交易关闭
+                        交易正常
+                            付款状态
+                                未付款
+                                    审核状态
+                                        2、审核中
+                                        未审核
+                                            3、未付款
+                                已付款
+                                    提货状态
+                                        4、未提货
+                                        5、部分提货
+                                        5、全部提货（交易完成）-->
+            <view class="state" wx:if="{{order.order_type == 2}}">{{order.Invalid == 1?'交易关闭':order.state == 0?'审核中':order.ordstatus == 0?'待付款':order.checkedNum != order['SUM(ordbuynum)']?'待提货':'交易完成'}}</view>
+        </view>
+        <block wx:if="{{order.order_type == 2}}">
+            <view class="info-box" bindtap="toDetail">
+                <view class="img-box">
+                    <view wx:for="{{order.shopInfo}}" class="img {{order.shopInfo.length>4 ? 'avatarItem--3':order.shopInfo.length>1?'avatarItem--2':'avatarItem--1'}}">
+                        <image src="{{item.order_img}}" mode="aspectFit"></image>
+                    </view>
+                </view>
+                <view class="info">
+                    <view class="info-title">{{order.blessing}}</view>
+                    <view class="info-name">
+                        <block wx:for="{{order.shopInfo}}" wx:for-item="shopItem" wx:for-index="shopIndex" wx:key="shopIndex">
+                            <block wx:if="{{shopIndex != 0}}">、</block>{{shopItem.title}}
+                        </block>
+                    </view>
+                    <view class="money">
+                        <wxs module="format">
+                            var format1 = function(order) {
+                                var total = parseFloat(order.amount_payable)
+                                var num = parseFloat(order['SUM(ordbuynum)'])
+                                return (total / num).toFixed(2).split('.')
+                            }
+                            var format2 = function(price) {
+                                var ls = price.split('.')
+                                return ls
+                            }
+                            module.exports = {
+                                format1: format1,
+                                format2: format2
+                            }
+                        </wxs>
+                        <view class="price">
+                            ¥
+                            <text class="big">{{format.format1(order)[0]}}</text>.{{format.format1(order)[1]}}
+                            <text decode class="big ncolor">&ensp;x {{order['SUM(ordbuynum)']}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{order.order_type == 1}}">
+            <view class="info-box" bindtap="toDetail">
+                <view class="img-box">
+                    <view class="img avatarItem--1">
+                        <image src="{{order.shopInfo[0].order_img}}" mode="aspectFit"></image>
+                    </view>
+                </view>
+                <view class="info">
+                    <view class="info-title">{{order.shopInfo[0].title}}</view>
+                    <view class="info-type" wx:if="{{order.shopInfo[0].label_lis.length > 0}}">
+                        <text>{{order.shopInfo[0].label_lis[0]}}</text>
+                    </view>
+                    <view class="money">
+                        <view class="price">
+                            ¥
+                            <text class="big">{{format.format2(order.ordprice)[0]}}</text>.{{format.format2(order.ordprice)[1]}}
+                            <text decode class="big ncolor">&ensp;x 1</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="total">
+            合计：
+            <text>¥{{order.ordprice}}</text>
+        </view>
+    </view>
+    <block wx:if="{{order.order_type == 2 && order.ordstatus != 0 && order.Invalid != 1}}">
+        <view class="pick">共{{order['SUM(ordbuynum)']}}件 已提：{{order.checkedNum}}件 待提：{{order['SUM(ordbuynum)']-order.checkedNum}}件</view>
+    </block>
+    <view class="btn-box" wx:if="{{order.Invalid != 1}}">
+        <view class="btn" wx:if="{{order.ordstatus == 0}}" bindtap="cancelOrder">取消订单</view>
+        <view class="btn btn1" wx:if="{{order.ordstatus == 0 && order.state != 0 }}" bindtap="payOrder">立即付款</view>
+        <view class="btn" wx:if="{{order.order_type == 1 && order.ordstatus == 1 && order.shipping_status == 0}}" bindtap="remindDelivery">{{order.remind == 1?'已提醒发货':'提醒发货'}}</view>
+        <view class="btn kefu-box" wx:if="{{order.ordstatus == 1}}" bindtap="afterSales">
+            <button class="kefu" open-type="contact" size="mini" style="font-size:25rpx">申请售后</button>
+        </view>
+        <!-- <view class="btn" wx:if="{{order.state == 2}}">全部提货</view> -->
+        <!-- 礼包支付未全部提货 -->
+        <view wx:if="{{order.order_type == 2 && order.ordstatus == 1 && order['SUM(ordbuynum)'] != order.checkedNum}}" class="btn btn1" bindtap="pickCode">生成提货码</view>
+        <view wx:if="{{order.order_type == 1 && order.shipping_status == 1 && order.takeover != 1}}" class="btn btn1" bindtap="confirmOrder">确认收货</view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

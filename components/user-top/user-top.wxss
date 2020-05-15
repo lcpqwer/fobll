@@ -1,0 +1,52 @@
+/* components/user-top/user-top.wxss */
+
+/* .top {
+  padding: 30rpx 0;
+} */
+
+.top {
+    height: 110rpx;
+    position: relative;
+}
+
+.top .info {
+    font-size: 25rpx;
+    line-height: 55rpx;
+}
+
+.money {
+    color: rgb(244, 163, 78);
+    width: 100%;
+}
+
+.money>.num {
+    font-size: 40rpx;
+    color: rgb(244, 163, 78);
+    /* font-weight: bold; */
+}
+
+.small {
+    font-size: 25rpx;
+}
+
+.no-compay {
+    color: white;
+    height: 110rpx;
+    font-size: 35rpx;
+    display: flex;
+}
+
+.login {
+    color: #fe823d;
+    /* text-decoration: underline; */
+    height: 45rpx;
+    border-bottom: 2rpx solid #fe823d;
+}
+
+.guide {
+    position: absolute;
+    top: 40rpx;
+    right: 40rpx;
+    width: 40rpx;
+    height: 40rpx;
+}

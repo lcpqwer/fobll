@@ -1,0 +1,46 @@
+<!--components/edit-order/invoice/edit-lookUp/edit-lookUp.wxml-->
+<!-- <block wx:if="{{show}}"> -->
+    <view class="mask"></view>
+    <view class="box">
+        <view class="title">
+            <view class="nav">新增抬头</view>
+            <view class="left" bindtap="back" bindtap="cancel">
+                <image src="{{rootUrl + 'back.png'}}"></image>
+            </view>
+            <image src="{{rootUrl + 'close.png'}}" class="close" bindtap="cancel"></image>
+        </view>
+        <view class="main box1">
+            <view class="item">
+                <view class="nav">抬头类型</view>
+                <view class="right">{{type == 1 ? '个人或事业单位':'企业'}}</view>
+            </view>
+            <view class="item">
+                <view class="nav">发票抬头</view>
+                <input data-nav="0" bindinput="inputVal" placeholder="抬头名称" value="{{defaultData.invoice_rise}}"></input>
+            </view>
+            <view class="item" wx:if="{{type == 2}}">
+                <view class="nav">税号</view>
+                <input data-nav="1" bindinput="inputVal" placeholder="纳税人识别号" value="{{defaultData.taxnumber}}"></input>
+            </view>
+        </view>
+        <view class="main box1" wx:if="{{type == 2}}">
+            <view class="item">
+                <view class="nav">开户银行</view>
+                <input data-nav="2" bindinput="inputVal" placeholder="开户银行" value="{{defaultData.invoce_bank}}"></input>
+            </view>
+            <view class="item">
+                <view class="nav">银行账号</view>
+                <input data-nav="3" bindinput="inputVal" placeholder="银行账号" value="{{defaultData.invoce_bankaccount}}"></input>
+            </view>
+            <view class="item">
+                <view class="nav">企业地址</view>
+                <input data-nav="4" bindinput="inputVal" placeholder="企业地址" value="{{defaultData.invoice_address}}"></input>
+            </view>
+            <view class="item">
+                <view class="nav">企业电话</view>
+                <input data-nav="5" bindinput="inputVal" placeholder="企业电话" value="{{defaultData.enterprise_phone}}"></input>
+            </view>
+        </view>
+        <view class="btn" bindtap="confirm">确认</view>
+    </view>
+<!-- </block> -->

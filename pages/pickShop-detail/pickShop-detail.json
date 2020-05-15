@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "widthFix-image": "/components/widthFix-image/widthFix-image"
+  },
+  "navigationBarTitleText": "我的提货"
+}

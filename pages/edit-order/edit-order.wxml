@@ -1,0 +1,129 @@
+<!--pages/edit-order/edit-order.wxml-->
+<view id="edit-order">
+    <view class="box-warpper">
+        <view class="box box1" style="background-image: url({{rootUrl + 'address-bottom.png'}})">
+            <view class="top">
+                <text class="type">公司</text>
+                <view class="city">{{address.address}}</view>
+            </view>
+            <!-- <view class="center">
+                {{address.detail}}
+            </view> -->
+            <view class="bottom">
+                {{address.name}}
+                <text class="phone">{{address.phone}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="box-warpper">
+        <view class="box box2">
+            <view>送礼方式</view>
+            <view class="to-right" bindtap="distribution">
+                <view class="right">{{way == 0 ? '配送到公司': way == 1 ? '电子码礼券' : '配送到新地址'}}</view>
+                <image class="push" src="{{rootUrl + 'push.png'}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="box-warpper">
+        <view class="box shop-box">
+            <image class="logo" src="{{rootUrl + 'logo.png'}}"></image>
+            <block wx:if="{{type == 1}}">
+                <view class="shop-info" wx:for="{{shopList}}" wx:key="index">
+                    <view class="img-box">
+                        <view wx:for="{{item.shop_list}}" wx:for-index="shopIndex" wx:key="shopIndex" wx:for-item="shopItem" class="img {{item.shop_list.length>4 ? 'avatarItem--3':item.shop_list.length>1?'avatarItem--2':'avatarItem--1'}}">
+                            <image src="{{shopItem.order_img}}"></image>
+                        </view>
+                    </view>
+                    <view class="info-box">
+                        <view class="info-title">{{item.greeting}}</view>
+                        <view class="info-name">
+                            <block wx:for="{{item.shop_list}}" wx:for-item="shopItem" wx:for-index="shopIndex" wx:key="shopIndex">
+                                {{shopItem.title}}
+                            </block>
+                        </view>
+                        <view class="money">
+                            <view class="price">
+                                ¥
+                                <text class="big">{{price.format(item.price)[0]}}.</text>{{price.format(item.price)[1]}}
+                            </view>
+                            <view class="num">{{item.number}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <block wx:for="{{shopList}}" wx:key="index">
+                    <view class="dis-box">
+                        <view class="dis-img">
+                            <image src="{{item.order_img}}" mode="aspectFit"></image>
+                        </view>
+                        <view class="dis-info-box">
+                            <view class="dis-title">{{item.title}}</view>
+                            <view>
+                                <wxs src="./price.wxs" module="price" />
+                                <text class="dis-price">¥{{price.format(item.price)[0]}}.<text class="small">{{price.format(item.price)[1]}}</text></text>
+                            </view>
+                            <view>
+                                <view class="dis-num">1</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+        </view>
+    </view>
+    <view class="box-warpper">
+        <view class="box order-info">
+            <view class="invoice">
+                <view>发票</view>
+                <view class="in-right" bindtap="inShow">
+                    <block wx:if="{{type == 1}}">
+                        <block wx:if="{{hasInvoice}}">
+                            <view class="r-info">
+                                <view>{{invoiceDate.type == '1'? '电子':invoiceDate.type == '2'?'纸质-普通':'纸质-增值税专用'}}</view>（
+                                <view class="info-main">商品明细-{{invoiceDate.title.invoice_rise}}</view>）
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <view class="r-info">
+                                此次不开具发票
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:else>
+                        <view class="r-info">
+                            折扣产品不可开具发票
+                        </view>
+                    </block>
+                    <image class="push" src="{{rootUrl + 'push.png'}}"></image>
+                </view>
+            </view>
+            <view class="info-item">商品总价：¥{{shopTotalPrice}}</view>
+            <!-- <view class="info-item">收益生成：¥20.00</view> -->
+            <!-- <view class="info-item">折扣返现：¥20.00</view> -->
+            <block wx:if="{{type == 1}}">
+                <view class="info-item">会费返还：¥{{feeBack}}</view>
+                <block wx:if="{{fee > 0}}">
+                    <view class="info-item">会费抵扣：共¥{{fee}} 可用¥{{feeDeduction}}
+                        <switch checked="{{switch1Checked}}" bindchange="switchChange" color="#f28e3d" />
+                    </view>
+                </block>
+                <view class="info-item">应付金额：¥{{copePrice}}</view>
+            </block>
+        </view>
+    </view>
+</view>
+<view class="bottom-box">
+    <view class="b-main">
+        <view class="left">应付：
+            <view class="price">¥
+                <text class="big">{{price.format(copePrice)[0]}}</text>.{{price.format(copePrice)[1]}}</view>
+        </view>
+        <view class="order" bindtap="confirm">立即下单</view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />
+<distribution nav="{{way}}" bind:change="changeWay" id="dist" bind:newaddress="newAddress" />
+<newAddress id="newAddress" bind:confirm="changeAddress" />
+<invoice id="invoice" wx:if="{{invoice}}" invoice="{{invoiceDate}}" titleList="{{titleList}}" bind:noInvoice="noInvoice" bind:openInvoice="openInvoice" bind:destory="inHide" bind:addOne="addOne" bind:updateOne="updateOne" />

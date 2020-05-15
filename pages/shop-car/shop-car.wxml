@@ -1,0 +1,42 @@
+<!--pages/shop-car/shop-car.wxml-->
+<block wx:if="{{userIdent == 1}}">
+    <view id="shop-car">
+        <view class="nav-list">
+            <view class="{{nav == 0 ? 'selected':''}}" data-nav="0" bindtap="chooseNav">¥100</view>
+            <view class="{{nav == 1 ? 'selected':''}}" data-nav="1" bindtap="chooseNav">¥150</view>
+            <view class="{{nav == 2 ? 'selected':''}}" data-nav="2" bindtap="chooseNav">¥200</view>
+            <view class="{{nav == 3 ? 'selected':''}}" data-nav="3" bindtap="chooseNav">¥300</view>
+            <view class="{{nav == 4 ? 'selected':''}}" data-nav="4" bindtap="chooseNav">¥500</view>
+            <!-- <view class="{{nav == 5 ? 'selected':''}}" data-nav="5" bindtap="chooseNav">折扣</view> -->
+            <view class="{{nav == 6 ? 'selected':''}}" data-nav="6" bindtap="chooseNav">礼包</view>
+        </view>
+        <shop100 id="shop100" style="display: {{nav == 0 ? 'block':'none'}}" />
+        <shop150 id="shop150" style="display: {{nav == 1 ? 'block':'none'}}" />
+        <shop200 id="shop200" style="display: {{nav == 2 ? 'block':'none'}}" />
+        <shop300 id="shop300" style="display: {{nav == 3 ? 'block':'none'}}" />
+        <shop500 id="shop500" style="display: {{nav == 4 ? 'block':'none'}}" />
+        <!-- <shopDiscount id="shopDiscount" style="display: {{nav == 5 ? 'block':'none'}}" /> -->
+        <shopGift id="shopGift" style="display: {{nav == 6 ? 'block':'none'}}" />
+    </view>
+</block>
+<block wx:else>
+    <view class="empty-box">
+        <view class="empty">
+            <image src="{{rootUrl + 'kong.png'}}"></image>
+            <text>空空如也</text>
+        </view>
+    </view>
+</block>
+
+<!-- <view class="bottom">
+    <view class="choose-box" bindtap="allSelected">
+        <view class="choose" style="background-image: url({{ allChecked ? rootUrl+ 'select.png' : ''}})" />
+        <text>全选</text>
+    </view>
+    <view class="money">
+        已选
+        <text> {{selectList.length}} </text>件 最多可选 6件
+    </view>
+    <view class="order" bindtap="showGift">生成礼包</view>
+</view>
+<giftBag style="display: {{giftBag ? 'black':'none'}}" bind:hide="hideGift" shopList="{{selectList}}"/> -->

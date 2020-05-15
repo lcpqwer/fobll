@@ -1,0 +1,12 @@
+<!--components/apply-item/apply-item.wxml-->
+<view class="time" style="color:{{color}}">{{item.createtime}}</view>
+<view class="main">
+  <view class="top">
+    <view>预计发放时间：{{item.grant_time}}</view>
+    <view>{{item.name}}</view>
+  </view>
+  <view class="bottom">
+  <view>数量：{{item.number}}件</view>
+  <view>预算：{{item.money}}元</view>
+  </view>
+</view>

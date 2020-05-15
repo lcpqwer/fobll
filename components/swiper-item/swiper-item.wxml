@@ -1,0 +1,5 @@
+<!--components/swiper-img/swiper-img.wxml-->
+<view class="box">
+<image src="{{banner}}" bindload="showImg" mode="widthFix" style="display: {{showImg ? 'black' : 'none'}}" lazy-load></image>
+</view>
+

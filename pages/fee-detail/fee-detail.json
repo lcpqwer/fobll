@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "user-top": "/components/user-top/user-top"
+  },
+  "navigationBarTitleText": "会费详情"
+}

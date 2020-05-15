@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "want-item": "/components/every-want-item/want-item"
+    },
+    "navigationBarTitleText": "大家想要"
+}

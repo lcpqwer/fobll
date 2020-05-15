@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "root-img": "/components/widthFix-image/widthFix-image"
+  },
+  "navigationBarTitleText": "登陆"
+}

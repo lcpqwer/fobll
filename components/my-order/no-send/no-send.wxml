@@ -1,0 +1,15 @@
+<!--components/my-order/no-send/no-send.wxml-->
+<scroll-view class="box" wx:if="{{!orderList || orderList.length > 0}}" scroll-y="{{true}}" bindscrolltolower="getOrder" hidden="{{hidden}}">
+    <view class="top"></view>
+    <block wx:for="{{orderList}}" wx:key="index">
+        <item order="{{item}}" />
+    </block>
+    <LoadMore state="{{state}}" />
+</scroll-view>
+<view hidden="{{hidden}}" wx:else class="empty-box">
+    <view class="top"></view>
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>

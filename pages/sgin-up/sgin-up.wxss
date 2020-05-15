@@ -1,0 +1,103 @@
+/* pages/sgin-up/sgin-up.wxss */
+
+#sgin-up {
+    padding: 45rpx;
+}
+
+#sgin-up>.title {
+    padding: 40rpx 0;
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: bold;
+    color: rgb(72, 72, 72);
+}
+
+.main {
+    padding-left: 80rpx;
+    font-size: 27rpx;
+}
+
+.form-item {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.form-item>view {
+    width: 100rpx;
+    line-height: 75rpx;
+}
+
+input {
+    padding-left: 15rpx;
+    width: 385rpx;
+    height: 75rpx;
+    border: 1rpx solid rgb(151, 151, 151);
+    border-radius: 10rpx;
+    font-size: 25rpx;
+}
+
+.info {
+    margin-top: 25rpx;
+}
+
+.info>view {
+    padding-top: 25rpx;
+}
+
+.btn-box {
+    display: flex;
+    margin: 45rpx 0;
+    margin-left: 70rpx;
+}
+
+.btn-box>.btn:nth-child(2) {
+    margin-left: 45rpx;
+}
+
+.btn {
+    width: 240rpx;
+    height: 60rpx;
+    background-color: rgb(242, 142, 61);
+    color: white;
+    font-size: 25rpx;
+    font-weight: normal;
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin: 0 auto;
+}
+
+.sgin-up {
+    line-height: 60rpx;
+    font-size: 25rpx;
+}
+
+.active {
+    height: 360rpx;
+    background-repeat: no-repeat;
+    background-size: cover; /* 重点二 */
+    border-radius: 25rpx;
+    margin-top: 35rpx;
+}
+
+.title-box {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    height: 100%;
+    display: flex;
+    border-bottom-left-radius: 25rpx;
+    border-bottom-right-radius: 25rpx;
+}
+
+.title-box>.title {
+    line-height: 120rpx;
+    margin-top: auto;
+    width: 100%;
+    text-indent: 25rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.more {
+    line-height: 60rpx;
+    font-size: 35rpx;
+}

@@ -1,0 +1,9 @@
+<!--pages/shop-list/shop-list.wxml-->
+<view id="shop-list">
+    <block wx:for="{{shops}}">
+        <shop-item shop="{{item}}" />
+    </block>
+    <LoadMore state="{{state}}" />
+</view>
+<Loading id="load" />
+<Marked id="marked" />

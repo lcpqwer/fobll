@@ -1,0 +1,35 @@
+<!--components/pickshop-item/pickshop-item.wxml-->
+<view class="pickshop-item">
+    <view class="i-top" bindtap="toDetail" data-id="{{pickItem.Id}}">
+        <view class="it-top">
+            <view class="time">{{pickItem.pickup_time}}</view>
+            <view class="type">{{pickItem.state === 1? '等待卖家发货': pickItem.state === 2? '已确认收货':'卖家已发货'}}</view>
+        </view>
+        <view class="it-main">
+            <view class="img">
+                <image src="{{pickItem.img}}" mode="widthFix" bindload="showImg" style="display: {{showImg ? 'block':'none'}}"></image>
+            </view>
+            <view class="info">
+                <view class="title">{{pickItem.name}}</view>
+                <view class="type-box">
+                    <text class="type">{{pickItem.label}}</text>
+                </view>
+                <view class="num">
+                    x {{pickItem.num}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="i-bottom">
+        <view class="btn button-box" wx:if="{{pickItem.state ==1 || pickItem.state ==3}}">
+            <!-- <button class="kefu" open-type="contact" size="mini" style="font-size:25rpx">申请售后</button> -->
+            <button class="button" open-type="contact" size="mini"></button>
+            申请售后
+        </view>
+        <view class="btn" wx:if="{{pickItem.state === 1}}" bindtap="warnGoods">提醒发货</view>
+        <view class="btn confirm" wx:if="{{pickItem.state === 2}}">已确认收货</view>
+        <view class="btn confirm" bindtap="okAcceptGoods" wx:if="{{pickItem.state === 3}}">确认收货</view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

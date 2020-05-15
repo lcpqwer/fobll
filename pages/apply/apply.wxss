@@ -1,0 +1,4 @@
+/* pages/apply/apply.wxss */
+#apply {
+  padding: 40rpx;
+}

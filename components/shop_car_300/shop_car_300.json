@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "giftBag": "/components/gift-bag/gift-bag",
+        "shop-car-item": "/components/shop-car-item/shop-car-item"
+    }
+}

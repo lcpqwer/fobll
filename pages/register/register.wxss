@@ -1,0 +1,58 @@
+/* pages/login/login.wxss */
+.logo {
+  width: 300rpx;
+  margin: 125rpx auto;
+  height: 96rpx;
+}
+
+.form-item {
+  height: 90rpx;
+  width: 610rpx;
+  border-bottom: 2rpx solid rgb(155,155,155);
+  margin: 0 auto;
+  margin-top: 60rpx;
+  display: flex;
+}
+
+.title {
+  /* font-size: 30rpx; */
+  font-weight: bold;
+  line-height: 90rpx;
+}
+
+.form-item input {
+  height: 100%;
+  width: 400rpx;
+  margin-left: 50rpx;
+}
+.btn {
+  width: 610rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin: 160rpx auto;
+  background-color: rgb(242,142,61);
+  color: white;
+  font-weight: bold;
+}
+
+.no-acount {
+  width: 275rpx;
+  display: flex;
+  font-size: 25rpx;
+  margin: 0 auto;
+}
+
+.to-home {
+  display: flex;
+  margin-left: 10rpx;
+}
+.to-home>view:nth-child(1){
+  color: rgb(242,142,61);
+  border-bottom: 1rpx solid rgb(242,142,61)
+}
+.img {
+  width: 20rpx;
+  margin-left: 20rpx;
+}

@@ -1,0 +1,62 @@
+/* pages/custom/custom.wxss */
+#custom {
+    padding: 40rpx 80rpx;
+}
+.input-item {
+    display: flex;
+    margin-top: 20rpx;
+}
+#custom .input-item:nth-child(1) {
+    margin: 0
+}
+.input-item .title {
+    font-size: 30rpx;
+    width: 160rpx;
+    line-height: 75rpx;
+}
+.input-item input {
+    width: 365rpx;
+    height: 73rpx;
+    border: 1rpx solid #979797;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    padding: 0 15rpx;
+}
+.input-item .picker {
+    width: 365rpx;
+    height: 73rpx;
+    line-height: 73rpx;
+    border: 1rpx solid #979797;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    padding: 0 15rpx;
+}
+
+.pColor {
+    color: #a6a6a6;
+}
+
+.must {
+    margin-left: auto;
+    margin-right: 10rpx;
+}
+
+.detail {
+    font-size: 25rpx;
+    margin-top: 20rpx;
+    color: #828282
+}
+.btn {
+    margin: 40rpx auto;
+    width: 240rpx;
+    height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background-color: #f28e3d;
+    color: white;
+    border-radius: 10rpx;
+}
+.nav {
+    font-size: 35rpx;
+}

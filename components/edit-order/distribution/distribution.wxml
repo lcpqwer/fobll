@@ -1,0 +1,24 @@
+<!--components/edit-order/distribution/distribution.wxml-->
+<block wx:if="{{show}}">
+    <view class="mask" bindtap="hide"></view>
+    <view class="box">
+        <view class="title">
+            <view class="nav">送礼方式</view>
+            <image src="{{rootUrl + 'close.png'}}" bindtap="hide"></image>
+        </view>
+        <view class="main">
+            <view class="item" data-nav="0" bindtap="selected">
+                <view class="{{nav == 0 ? 'nav':''}}">配送到公司</view>
+                <image style="display: {{nav == 0 ? 'block':'none'}}" src="{{rootUrl + 'select.png'}}"></image>
+            </view>
+            <view class="item" wx:if="{{type == 1}}" data-nav="1" bindtap="selected">
+                <view class="{{nav == 1 ? 'nav':''}}">电子码礼券</view>
+                <image style="display: {{nav == 1 ? 'block':'none'}}" src="{{rootUrl + 'select.png'}}"></image>
+            </view>
+            <view class="item" bindtap="newAddress">
+                <view>填写新地址</view>
+                <image src="{{rootUrl + 'push.png'}}"></image>
+            </view>
+        </view>
+    </view>
+</block>

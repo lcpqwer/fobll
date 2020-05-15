@@ -1,0 +1,34 @@
+<!--pages/everyone-want/everyone-want.wxml-->
+<block wx:if="{{!list || list.length>0}}">
+    <block wx:for="{{list}}" wx:for-item="userItem" wx:for-index="userIndex" wx:key="userIndex">
+        <view class="box">
+            <view class="main">
+                <view class="nav">{{userItem.name}}的想要</view>
+                <block wx:for="{{userItem.shopList}}" wx:key="index" wx:for-item="shopItem" wx:for-key="shopIndex">
+                    <want-item shop="{{shopItem}}" userIndex="{{userIndex}}" index="{{shopIndex}}" bind:choose="choose" index="{{index}}" />
+                </block>
+            </view>
+        </view>
+    </block>
+    <LoadMore state="{{state}}" />
+</block>
+
+<view wx:else class="empty-box">
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>
+<view hidden="{{!list || list.length<=0}}" class="b-box">
+    <view class="bottom">
+        <view class="del" bindtap="addCar">
+            加入购物车
+        </view>
+        <view class="allChecked" bindtap="allSelected">
+            <view class="checked" style="background-image: url({{ allChecked ? rootUrl+ 'select.png' : ''}})"></view>
+            <view>全选</view>
+        </view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

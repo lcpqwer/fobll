@@ -1,0 +1,12 @@
+<!--canvas/index.wxml-->
+<!-- <text>canvas/index.wxml</text> -->
+<!-- style="{{'width: ' + (canvasW) + 'px; height: ' + (canvasH) + 'px;'}}"  -->
+<view class="mask" bindtap="hide"></view>
+<image src="/components/canvas/img/close.png" hidden="{{!show}}" bindtap="hide" class="close"></image>
+<view class="main" hidden="{{!show}}">
+    <canvas class="canvas" canvas-id="myCanvas" style="{{'width: ' + (canvasW) + 'px; height: ' + (canvasH) + 'px;'}}"></canvas>
+    <view class="save" bindtap="save">保存</view>
+</view>
+<Loading id="load"/>
+
+<!-- <image src="{{img}}"></image> -->

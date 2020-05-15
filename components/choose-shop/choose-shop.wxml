@@ -1,0 +1,72 @@
+<!--components/choose-shop/choose-shop.wxml-->
+<view hidden="{{!show}}" class="fixed">
+    <view class="title">
+        <view class="nav">商品列表</view>
+        <view class="left" bindtap="back">
+            <image src="{{rootUrl + 'back.png'}}"></image>
+        </view>
+        <image src="{{rootUrl + 'close.png'}}" class="close" bindtap="back"></image>
+    </view>
+    <block wx:for="{{shopList}}" wx:key="index">
+        <view class="shop-box" bindtap="checked" data-index="{{index}}">
+            <view class="check-box">
+                <view class="check" hidden="{{checkIndex == index}}" style="background-image: url({{checkIndex == index ? rootUrl+'select.png':''}})"></view>
+                <image class="check" hidden="{{checkIndex != index}}" src="{{rootUrl+'select.png'}}" mode="widthFix"></image>
+            </view>
+            <view class="img-box">
+                <image src="{{item.order_img}}" mode="aspectFit" lazy-load/>
+            </view>
+            <view class="info">
+                <view class="name">{{item.title}}</view>
+                <view class="type-box">
+                    <text class="type">{{item.label}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="text">共{{count}}件可选 最多可选1件</view>
+    <wxs module="formatTime">
+        var format1 = function(s) {
+            var h = 0;
+            var m = 0;
+            var d = 0;
+            if (s > 60) {
+                m = parseInt(s / 60);
+                s = parseInt(s % 60);
+                if (m > 60) {
+                    h = parseInt(m / 60);
+                    m = parseInt(m % 60);
+                    if (h>24){
+                        d = parseInt(h / 24);
+                        h = parseInt(h % 24);
+                    }
+                }
+            };
+            if (d>0){
+                if (h > 0){
+                    return d + '天' + h + '小时'
+                }else {
+                    return d + '天'
+                }
+            }else {
+                if (h > 0){
+                    return h + '小时'
+                }else {
+                    if (m > 0){
+                        return m + '分钟'
+                    }else {
+                        return s + "秒"
+                    }
+                }
+            }
+        }
+        module.exports = {
+            format1: format1
+        }
+    </wxs>
+    <view class="text">
+        <text class="red">剩余有效期：</text>{{formatTime.format1(date)}}</view>
+    <view class="btn" bindtap="pickShop">确认提货</view>
+</view>
+<Marked id="marked" />
+<pick shop="{{checkShop}}" ordid="{{ordid}}" wx:if="{{pick}}" bind:back="show" bind:destory="destory" />

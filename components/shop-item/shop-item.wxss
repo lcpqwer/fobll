@@ -1,0 +1,98 @@
+/* components/shop-item/shop-item.wxss */
+
+.warpper {
+    padding-top: 20rpx;
+    z-index: 1;
+}
+
+.box {
+    padding: 25rpx 40rpx 25rpx 25rpx;
+    background-color: white;
+    border-radius: 20rpx;
+    border: 1rpx solid #d7d7d7;
+    display: flex;
+}
+
+.left {
+    width: 275rpx;
+    height: 290rpx;
+    position: relative;
+}
+
+.left>image {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.lable {
+    position: absolute;
+    right: 0;
+    font-size: 20rpx;
+    height: 30rpx;
+    border: 1rpx solid #f28e3d;
+    line-height: 30rpx;
+    padding: 0 8rpx;
+    border-radius: 10rpx;
+    color: #f28e3d;
+}
+
+.right {
+    width: 300rpx;
+    margin-left: auto;
+}
+
+.detail {
+    height: 176rpx;
+    width: 290rpx;
+    border-top: 2rpx solid #979797;
+    border-bottom: 2rpx solid #979797;
+    /* padding: 25rpx 0; */
+    text-align: center;
+    margin-top: 10rpx;
+}
+
+.intro {
+    font-size: 25rpx;
+    color: #666;
+    line-height: 75rpx;
+}
+
+.name, .brand {
+    font-size: 31rpx;
+    /* font-weight: bold */
+}
+
+.name {
+    /* padding: 20rpx 0 15rpx 0; */
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.price {
+    font-size: 25rpx;
+    color: #f28e3d;
+    margin-top: 20rpx;
+}
+
+.car-box {
+    height: 40rpx;
+    width: 100%;
+}
+
+.add-car {
+    margin-left: auto;
+    width: 40rpx;
+    height: 40rpx;
+    background-color: #f28e3d ;
+    border-radius: 50%;
+    display: flex;
+}
+
+.add-car image, .add-car .img-box {
+    width: 24rpx;
+    height: 22rpx;
+    margin: auto;
+}

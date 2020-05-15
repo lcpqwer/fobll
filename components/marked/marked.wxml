@@ -1,0 +1,12 @@
+<!--components/marked/marked.wxml-->
+<block wx:if="{{show}}">
+    <view class="mask" bindtap="nowHide">
+        <view class="main">
+            <image wx:if="{{marked.mode == 'success'}}" src="/static/select.png"></image>
+            <image wx:else src="/static/error.png"></image>
+            <view class="text">
+                {{marked.msg}}
+            </view>
+        </view>
+    </view>
+</block>

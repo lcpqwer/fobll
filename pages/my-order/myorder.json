@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+      "all": "/components/my-order/all-order/all-order",
+      "noPayment": "/components/my-order/no-payment/no-payment",
+      "noSend": "/components/my-order/no-send/no-send",
+      "hasSend": "/components/my-order/has-send/has-send",
+      "noPick": "/components/my-order/no-pick/no-pick"
+  }
+}

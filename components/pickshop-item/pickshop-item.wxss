@@ -1,0 +1,142 @@
+/* components/pickshop-item/pickshop-item.wxss */
+
+.pickshop-item {
+    background-color: white;
+    border-radius: 20rpx;
+    margin-top: 20rpx;
+}
+
+.i-top {
+    padding: 0 40rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    padding-bottom: 20rpx;
+}
+
+.it-top {
+    height: 70rpx;
+    line-height: 70rpx;
+    display: flex;
+    font-size: 25rpx;
+}
+
+.it-top .time {
+    margin-right: auto;
+    color: #a8a6a6;
+}
+
+.it-top .type {
+    color: #f9c59a;
+}
+
+.it-main {
+    display: flex;
+}
+
+/* ---------- */
+
+.img {
+    width: 140rpx;
+    /* height: 100; */
+    background-color: rgb(244, 244, 244);
+    border-radius: 15rpx;
+    /* border: 1rpx solid rgb(213, 213, 213); */
+    overflow: hidden;
+}
+
+.img image {
+    width: 100%;
+}
+
+.info {
+    width: 420rpx;
+    margin-left: 20rpx;
+}
+
+.title {
+    font-size: 30rpx;
+    font-weight: bold;
+    height: 45rpx;
+    line-height: 45rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.type-box {
+    height: 50rpx;
+    position: relative;
+}
+
+.type-box .type {
+    font-size: 20rpx;
+    height: 30rpx;
+    border: 1rpx solid rgb(250, 208, 174);
+    line-height: 30rpx;
+    padding: 0 8rpx;
+    border-radius: 10rpx;
+    color: rgb(250, 208, 174);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.num {
+    color: #737171;
+    font-size: 30rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+}
+
+/* -------------------------- */
+
+.i-bottom {
+    padding: 20rpx 40rpx 40rpx 40rpx;
+    display: flex;
+}
+
+.i-bottom .btn {
+    width: 160rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    border: 2rpx solid #8a8a8a;
+    border-radius: 10rpx;
+    color: #8a8a8a;
+    font-size: 25rpx;
+    margin-left: 20rpx;
+}
+
+.i-bottom>.btn:nth-child(1) {
+    margin-left: auto;
+}
+
+.kefu {
+    /* width: 60rpx;
+  line-height: 73rpx; */
+    height: 45rpx;
+    background-color: #fff;
+    /* margin-left: 0; */
+    font-size: 0rpx;
+    margin-top: 2rpx;
+    color: #5e5e5e;
+    font-weight: 400;
+    padding: 0rpx;
+}
+
+.confirm {
+    color: #f28e3d !important;
+    border: 2rpx solid #f28e3d !important;
+}
+
+.button-box {
+    position: relative;
+}
+
+.button {
+    width: 100% !important;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}

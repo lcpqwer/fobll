@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "widthFix-image": "/components/widthFix-image/widthFix-image",
+    "sginUp-item": "/components/sginUp-item/sginUp-item"
+  },
+  "navigationBarTitleText": "活动详情"
+}

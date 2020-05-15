@@ -1,0 +1,171 @@
+/* pages/user/user.wxss */
+
+.user-info {
+    /* height: 308rpx; */
+    padding: 40rpx 40rpx 0 40rpx;
+    background-repeat: no-repeat;
+    background-size: cover; /* 重点二 */
+}
+
+.info {
+    padding: 40rpx 0;
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+}
+
+.info image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.info button {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    width: 100% !important;
+    height: 100%;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+}
+
+button:not([size='mini']) {
+    margin: 0;
+    padding: 0;
+    width: 240rpx;
+}
+
+.info>view {
+    height: 100%;
+    margin-left: 15rpx;
+}
+
+.btn-box {
+    width: 240rpx !important;
+    height: 80rpx !important;
+    margin-top: auto;
+}
+
+.name {
+    color: #fff;
+    font-size: 35rpx;
+}
+
+.type {
+    border: 1rpx solid rgb(242, 142, 61);
+    font-size: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 0 20rpx;
+    color: rgb(242, 142, 61);
+    border-radius: 20rpx;
+}
+
+.box {
+    width: 670rpx;
+    margin: 40rpx auto 0 auto;
+    background-color: white;
+    border-radius: 20rpx;
+}
+
+.box>.title {
+    width: 100%;
+    height: 80rpx;
+    position: relative;
+    border-bottom: 2rpx solid rgb(235, 235, 235);
+}
+
+.title .left {
+    line-height: 80rpx;
+    margin-left: 40rpx;
+    font-size: 30rpx;
+}
+
+.title .right {
+    float: right;
+    display: flex;
+    height: 100%;
+    line-height: 80rpx;
+    margin-right: 40rpx;
+}
+
+.right image {
+    width: 15rpx;
+    height: 25rpx;
+    margin-top: 40rpx;
+    transform: translateY(-50%);
+}
+
+.center {
+    font-size: 25rpx;
+    color: #c2c2c2;
+    margin-right: 10rpx;
+}
+
+.main {
+    /* height: 173rpx; */
+}
+
+.main>view {
+    width: 25%;
+    text-align: center;
+    display: inline-block;
+}
+
+.img {
+    height: 60rpx;
+    margin-top: 40rpx;
+}
+
+.main image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.text {
+    line-height: 73rpx;
+    font-size: 30rpx;
+    color: #5e5e5e;
+}
+
+.box1 {
+    padding-bottom: 30rpx;
+}
+
+.kefu {
+    background-color: #fff;
+    font-size: 0rpx;
+    color: #5e5e5e;
+    font-weight: 400;
+    padding: 0rpx;
+}
+
+.customer {
+    position: relative;
+}
+
+.button {
+    width: 100% !important;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0
+}
+/* 
+.customer>view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 40rpx;
+    left: 0;
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    opacity: 0
+} */

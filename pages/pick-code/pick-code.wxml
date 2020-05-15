@@ -1,0 +1,45 @@
+<!--pages/pick-code/pick-code.wxml-->
+<view id="pick-code">
+    <view hidden="{{!share}}">
+        <share id="share" bind:hide="hideShare" />
+    </view>
+    <view class="order-box">
+        <view class="top">
+            <view class="time">{{order.ordtimeFormat}}</view>
+            <view class="state">每人可领一件</view>
+        </view>
+        <view class="info-box">
+            <view class="img-box">
+                <view wx:for="{{order.shopInfo}}" class="img {{order.shopInfo.length>4 ? 'avatarItem--3':order.shopInfo.length>1?'avatarItem--2':'avatarItem--1'}}">
+                    <image src="{{item.order_img}}" mode="aspectFit"></image>
+                </view>
+            </view>
+            <view class="info">
+                <view class="info-title">{{order.blessing}}</view>
+                <view class="info-name">
+                    <block wx:for="{{order.shopInfo}}" wx:for-item="shopItem" wx:for-index="shopIndex" wx:key="shopIndex">
+                        <block wx:if="{{shopIndex != 0}}">、</block>{{shopItem.title}}
+                    </block>
+                </view>
+                <view class="money">
+                    <view class="price">
+                        x {{order['SUM(ordbuynum)']}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="main">
+        <image class="code-qr" src="{{code.img}}"></image>
+        <view class="code">
+            <text class="text">提货码：{{code.text}} </text>
+            <view class="copy" bindtap="copyCode">复制</view>
+        </view>
+        <view class="eg">
+            <text class="red">注</text>：兑换码有效期为7天，7天后自动失效，请在7天内完成提货
+        </view>
+        <view class="btn" bindtap="showShare">分享礼包</view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

@@ -1,0 +1,45 @@
+<!--components/shop_car_gift/item/item.wxml-->
+<view class="shop-warpper" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+    <view class="shop-box" style="transform: translateX({{tran+'rpx'}});">
+        <view class="shop-info-box">
+            <view class="choose" catchtap="choose">
+                <view class="choose-box" wx:if="{{!gift.checked}}"></view>
+                <image class="choose-box choose-img" wx:else src="{{rootUrl+ 'select.png'}}"></image>
+            </view>
+            <view>
+                <view class="info-box1"  catchtap="toDetail">
+                    <view class="img-box">
+                        <view wx:for="{{gift.shop_list}}" wx:for-index="shopIndex" wx:key="shopIndex" wx:for-item="shopItem" class="img {{gift.shop_list.length>4 ? 'avatarItem--3':gift.shop_list.length>1?'avatarItem--2':'avatarItem--1'}}">
+                            <image src="{{shopItem.order_img}}" mode="aspectFit"></image>
+                        </view>
+                    </view>
+                    <view>
+                        <view class="shop-title">{{gift.greeting}}</view>
+                        <view class="shops-name">
+                            <block wx:for="{{gift.shop_list}}" wx:key="index">
+                                <block wx:if="{{index != 0}}">、</block>
+                                {{item.title}}
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="info-box2">
+                    <view class="price">¥{{gift.price}}</view>
+                    <view class="num-box">
+                        <view class="add" catchtap="addOne">
+                            <image src="{{rootUrl + 'add.png'}}"></image>
+                        </view>
+                        <input class="num" type="number" value="{{gift.number}}" bindblur="inputNumber"></input>
+                        <view class="minus" catchtap="minusOne">
+                            <image src="{{rootUrl + 'minus.png'}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="del" catchtap="delGift">
+            <text>删\n除</text>
+        </view>
+    </view>
+</view>
+<Marked id="marked" />

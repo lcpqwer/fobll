@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "apply-item": "/components/apply-item/apply-item",
+    "loadding-more":"/components/load-more/load-more"
+  },
+  "navigationBarTitleText": "礼品申请"
+}

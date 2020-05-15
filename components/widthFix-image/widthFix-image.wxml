@@ -1,0 +1,2 @@
+<!--components/widthFix-image/widthFix-image.wxml-->
+<image webp="true" src="{{state == 'noRoot' ? src : (rootUrl + src)}}" mode="{{mode}}" bindload="showImg" style="display: {{showImg ? 'black':'none'}};height:{{height}}" lazy-load></image>

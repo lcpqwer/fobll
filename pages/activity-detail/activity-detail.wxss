@@ -1,0 +1,72 @@
+/* pages/activity-detail/activity-detail.wxss */
+
+#ac-detail {
+    height: 100%;
+    background-color: #41403f;
+    overflow: auto;
+    position: relative;
+}
+#ac-detail>image {
+    height: 900rpx;
+}
+#ac-detail>view {
+    z-index: 10000;
+}
+
+.img-box {
+    height: 470rpx;
+    width: 100%;
+}
+
+.box {
+    padding: 0 55rpx;
+    color: white;
+    font-size: 30rpx;
+}
+
+.title {
+    padding: 40rpx 40rpx;
+    color: rgb(242, 142, 61);
+    font-size: 45rpx;
+    font-weight: bold;
+}
+
+.detail {
+    padding-bottom: 50rpx;
+}
+
+.info {
+    padding: 10rpx 0;
+}
+
+.btn {
+    height: 60rpx;
+    width: 240rpx;
+    font-size: 30rpx;
+    color: white;
+    background-color: rgb(242, 142, 61);
+    line-height: 60rpx;
+    margin: 50rpx auto;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.sgin-up {
+    width: 275rpx;
+    position: absolute;
+    right: 0;
+    top: 650rpx;
+    z-index: 1 !important;
+}
+
+.sgin-up image {
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.sgin-up1 {
+    line-height: 60rpx;
+    font-size: 25rpx;
+    color: white;
+    padding: 0 40rpx;
+}

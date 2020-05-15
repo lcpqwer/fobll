@@ -1,0 +1,24 @@
+<!--components/load-more/load-more.wxml-->
+<view class="uni-load-more">
+    <view hidden="{{state != 'Loading'}}" class="uni-load-more__img">
+        <view class="load1 load">
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+        </view>
+        <view class="load2 load">
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+        </view>
+        <view class="load3 load">
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+            <view class="uni-load-view_wrapper" style="{{'background:'+(color)+';'}}"></view>
+        </view>
+    </view>
+    <text decode class="uni-load-more__text">{{state == 'noMore' ? '——————&ensp;&ensp;没有更多了&ensp;&ensp;——————' : state == 'Loading' ? '加载中': state == 'More'?'上拉加载更多数据': state == 'Error'? '加载失败' : ''}}</text>
+</view>

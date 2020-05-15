@@ -1,0 +1,7 @@
+<!--pages/my-pickShop/my-pickShop.wxml-->
+<view id="pick-shop">
+  <block wx:for="{{allShop.list}}" wx:key="index">
+    <pickshop-item pickItem="{{item}}" index="{{index}}" />
+  </block>
+  <loadding-more state="{{allShop.state}}" /> 
+</view>

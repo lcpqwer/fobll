@@ -1,0 +1,170 @@
+/* pages/pick-code/pick-code.wxss */
+
+#pick-code {
+    padding: 40rpx 40rpx 0 40rpx;
+    width: 670rpx;
+}
+
+.order-box {
+    padding: 0 40rpx;
+    background-color: white;
+    border-radius: 20rpx;
+    padding-bottom: 25rpx;
+}
+
+.top {
+    height: 70rpx;
+    display: flex;
+    font-size: 25rpx;
+}
+
+.top>.time {
+    margin: auto 0;
+    color: #d0cfcf;
+}
+
+.top>.state {
+    margin: auto 0 auto auto;
+    color: #f39345;
+}
+
+.info-box {
+    display: flex;
+    padding: 10rpx 0;
+}
+
+.img-box {
+    width: 140rpx;
+    height: 140rpx;
+    border: 1rpx solid #f4f4f4;
+    border-radius: 20rpx;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap-reverse;
+}
+
+/* 头像style start */
+
+.avatarItem--1 {
+    width: 100%;
+    height: 100%;
+}
+
+.avatarItem--2 {
+    width: 47%;
+    height: 47%;
+    margin: 1%;
+}
+
+.avatarItem--3 {
+    width: 30%;
+    height: 30%;
+    margin: 1%;
+}
+
+.img>image {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+}
+
+/* 头像style end */
+
+/* info */
+
+.info {
+    width: 420rpx;
+    margin-left: auto;
+}
+
+.info-title {
+    font-size: 30rpx;
+    font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-name {
+    width: 100%;
+    height: 60rpx;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    color: #454545;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /*要显示的行数*/
+    -webkit-box-orient: vertical;
+}
+
+.price {
+    font-size: 25rpx;
+    color: #737171;
+    margin-top: 14rpx;
+}
+.main {
+    width: 670rpx;
+    display: flex;
+    flex-direction: column
+}
+.code-qr {
+    width: 420rpx;
+    height: 420rpx;
+    margin: 0 auto;
+    margin-top: 80rpx;
+}
+
+.code {
+    height: 100rpx;
+    margin: auto;
+    margin-top: 10rpx;
+    display: flex
+}
+
+.code .text {
+    font-size: 40rpx;
+    font-weight: bold;
+    line-height: 100rpx;
+}
+
+.code .copy {
+    width: 50rpx;
+    height: 30rpx;
+    text-align: center;
+    line-height: 30rpx;
+    border: 1rpx solid #8a8a8a;
+    border-radius: 5rpx;
+    color: #8a8a8a;
+    margin: auto 0 auto 25rpx;
+    font-size: 20rpx;
+}
+
+.eg {
+    width: 470rpx;
+    word-wrap:break-word;
+    line-height: 33rpx;
+    margin: auto;
+    color: #a8a8a8;
+    font-size: 25rpx;
+}
+.red {
+    color: red
+}
+
+.btn {
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: white;
+    background-color: #f28e3d;
+    border-radius: 10rpx;
+    margin: 60rpx auto;
+    font-weight: bold;
+    font-size: 30rpx;
+}

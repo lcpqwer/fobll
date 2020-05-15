@@ -1,0 +1,237 @@
+// components/my-order/all-order/all-order.js
+import Request from '../../../utils/request.js'
+import Url from '../../../utils/http.js'
+var app = getApp()
+Component({
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        hidden: {
+            type: Boolean,
+            value: false
+        }
+    },
+    /**
+     * 创建时运行
+     */
+    created() {
+        this.load = this.selectComponent('#load')
+        // 删除订单成功回调
+        app.cancelOrderCallback1 = ordid => {
+            if (this.data.orderList) {
+                for (let i = 0; i < this.data.orderList.length; i++) {
+                    if (this.data.orderList[i].ordid == ordid) {
+                        this.setData({
+                            ['orderList[' + i + '].Invalid']: 1
+                        })
+                        break
+                    }
+                }
+
+            }
+            this.hideLoad()
+        }
+        // 支付订单成功回调
+        app.payOrderCallback = ordid => {
+            if (this.data.orderList) {
+                for (let i = 0; i < this.data.orderList.length; i++) {
+                    if (this.data.orderList[i].ordid == ordid) {
+                        this.setData({
+                            ['orderList[' + i + '].shipping_status']: 0,
+                        })
+                        if (this.data.orderList[i].order_type == 1) {
+                            this.setData({
+                                ['orderList[' + i + '].ordstatus']: 1
+                            })
+                        }
+                        break
+                    }
+                }
+
+            }
+            this.hideLoad()
+        }
+        // 提醒发货成功回调
+        app.remindCallback1 = (ordid) => {
+            if (this.data.orderList) {
+                for (let i = 0; i < this.data.orderList.length; i++) {
+                    if (this.data.orderList[i].ordid == ordid) {
+                        this.setData({
+                            ['orderList[' + i + '].remind']: 1,
+                        })
+                        break
+                    }
+                }
+
+            }
+        }
+        // 确认收货成功回调
+        app.confirmCallback1 = (ordid) => {
+            if (this.data.orderList) {
+                for (let i = 0; i < this.data.orderList.length; i++) {
+                    if (this.data.orderList[i].ordid == ordid) {
+                        this.setData({
+                            ['orderList[' + i + '].takeover']: 1,
+                        })
+                        break
+                    }
+                }
+
+            }
+        }
+    },
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        rootUrl: getApp().globalData.rootUrl,
+        orderList: null,
+        page: 1,
+        pageTotal: 1,
+        state: 'More'
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        /**
+         * 时间格式化
+         * @method dateFormat
+         * @param {String} fmt 格式 'YYYY-mm-dd HH:MM'
+         * @param {Date} date 日期
+         */
+        dateFormat(time) {
+            let fmt = 'YYYY-mm-dd'
+            let date = new Date(new Date(time).getTime() - 8 * 60 * 60 * 1000)
+            let ret;
+            const opt = {
+                "Y+": date.getFullYear().toString(), // 年
+                "m+": (date.getMonth() + 1).toString(), // 月
+                "d+": date.getDate().toString(), // 日
+                "H+": date.getHours().toString(), // 时
+                "M+": date.getMinutes().toString(), // 分
+                "S+": date.getSeconds().toString() // 秒
+                // 有其他格式化字符需求可以继续添加，必须转化成字符串
+            };
+            for (let k in opt) {
+                ret = new RegExp("(" + k + ")").exec(fmt);
+                if (ret) {
+                    fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+                };
+            };
+            return fmt;
+        },
+        /**
+         * 获取分页订单
+         * @method getOrders
+         */
+        getOrders() {
+            let _this = this
+            let page = _this.data.page
+            let params = {
+                eid: getApp().globalData.company.id,
+                page: page
+            }
+            _this.setData({
+                state: 'Loading'
+            })
+            Request.Ajax(Url.getAllOrders(), params, 'POST').then(res => {
+                console.log(res)
+                if (res.code == 200) {
+                    if (res.data == '') {
+                        this.setData({
+                            orderList: [],
+                            state: 'noMore'
+                        })
+                    } else {
+                        let ls = res.data.data
+                        let state = 'More';
+                        let orderList;
+                        let pageTotal = Math.ceil(res.data.count / 10)
+                        for (let i=0;i<ls.length;i++){
+                            ls[i].ordtimeFormat = _this.dateFormat(ls[i].ordtime)
+                        }
+                        if (page == 1) {
+                            orderList = ls.slice(10 * (page - 1), 10 * page)
+                        } else {
+                            orderList = this.data.orderList.concat(res.data.data)
+                        }
+                        if (page == pageTotal) {
+                            state = 'noMore'
+                        }
+                        _this.setData({
+                            state: state,
+                            orderList: orderList,
+                            page: page + 1,
+                            pageTotal: pageTotal
+                        })
+                    }
+                } else {
+                    _this.setData({
+                        page: page,
+                        state: 'Error'
+                    })
+                }
+            }).catch(res => {
+                _this.setData({
+                    page: page,
+                    state: 'Error'
+                })
+            })
+        },
+        /**
+         * 初始化
+         * @method init
+         */
+        init() {
+            let userIdent = getApp().globalData.userIdent;
+            if (userIdent == 1){
+                if (this.data.page == 1) {
+                    this.getOrders()
+                }
+            }else {
+                this.setData({
+                    orderList: []
+                })
+            }
+        },
+        /**
+         * 滑动到底部触发
+         * @method lower
+         */
+        lower() {
+            if (this.data.state != 'Loading' && this.data.state != 'noMore') {
+
+                this.setData({
+                    state: 'Loading'
+                })
+                this.getOrders()
+            }
+        },
+        /**
+         * 取消订单成功
+         */
+        cancelOrder(e) {
+            let index = e.detail.index
+            this.setData({
+                ['orderList[' + index + '].Invalid']: 1
+            })
+        },
+        /**
+         * show load
+         * @method showLoad
+         */
+        showLoad() {
+            this.load.show()
+        },
+        /**
+         * hide load
+         * @method hideLoad
+         */
+        hideLoad() {
+            this.load.hide()
+        }
+    }
+})

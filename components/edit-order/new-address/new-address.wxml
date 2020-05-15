@@ -1,0 +1,36 @@
+<!--components/edit-order/new-address/new-address.wxml-->
+<block wx:if="{{show}}">
+    <view class="mask" bindtap="hide"></view>
+    <view class="box">
+        <view class="title">
+            <view class="nav">填写新地址</view>
+            <image src="{{rootUrl + 'close.png'}}" bindtap="hide"></image>
+        </view>
+        <view class="main">
+            <view class="item">
+                <view class="nav">联 系 人</view>
+                <input class="text" data-type="0" value="{{name}}" bindinput="inputVal" placeholder="请输入姓名" placeholder-class="pstyle"></input>
+            </view>
+            <view class="item">
+                <view class="nav">联系电话</view>
+                <input class="text" data-type="1" value="{{phone}}" bindinput="inputVal" placeholder="请输入手机号" placeholder-class="pstyle"></input>
+            </view>
+            <view class="item">
+                <view class="nav">城市/区域</view>
+                <picker mode="multiSelector" value="{{cityIndex}}" range="{{cityArray}}" range-key="name" bindcolumnchange="change" bindchange="changeVal">
+                    <view class="text {{ubranAreas == '请选择城市区域' ? 'pstyle':''}}">
+                        {{ubranAreas}}
+                        <image src="{{rootUrl+'push.png'}}" class="push"></image>
+                    </view>
+                </picker>
+            </view>
+            <view class="item">
+                <view class="nav">详细地址</view>
+                <input class="text" data-type="2" value="{{addressDetail}}" bindinput="inputVal" placeholder="请输入详细地址" placeholder-class="pstyle"></input>
+            </view>
+            <view class="btn" bindtap="confirm">确认</view>
+        </view>
+    </view>
+</block>
+<Loading id="load" />
+<Marked id="marked" />

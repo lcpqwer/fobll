@@ -1,0 +1,26 @@
+<!--components/shop-item/shop-item.wxml-->
+<view class="warpper" bindtap="toDetail">
+    <view class="box">
+        <view class="left">
+            <image src="{{shop.order_img}}" mode="aspectFit" lazy-load/>
+            <block wx:if="{{shop.label_list.length>0}}">
+                <text class="lable">{{shop.label_list[0].name}}</text>
+            </block>
+        </view>
+        <view class="right">
+            <view class="detail">
+                <view class="intro">{{shop.brief_introduction}}</view>
+                <view class="brand">{{shop.brand}}</view>
+                <view class="name">{{shop.title}}</view>
+            </view>
+            <view class="price">单位福利价：¥{{shop.supply_price}}</view>
+            <view class="car-box">
+                <view class="add-car" catchtap="addToCar" wx:if="{{shop.type != 3}}">
+                    <image src="{{rootUrl + 'shop-car-white.png'}}" lazy-load></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

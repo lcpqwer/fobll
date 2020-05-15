@@ -1,0 +1,28 @@
+<!--components/edit-order/invoice/type/type.wxml-->
+<block wx:if="{{show}}">
+    <view class="mask" bindtap="hide"></view>
+    <view class="box">
+        <view class="title">
+            <view class="nav">发票类型选择</view>
+            <view class="left" bindtap="back">
+                <image src="{{rootUrl + 'back.png'}}"></image>
+            </view>
+            <image src="{{rootUrl + 'close.png'}}" class="close" bindtap="hide"></image>
+        </view>
+        <view class="main">
+            <view class="item {{nav == 1 ? 'border':''}}" data-nav="1" bindtap="changeNav">
+                <view class="nav">电子发票</view>
+                <image style="display: {{nav == 1 ? 'block':'none'}}" src="{{rootUrl + 'select.png'}}"></image>
+            </view>
+            <view class="item {{nav == 2 ? 'border':''}}" data-nav="2" bindtap="changeNav">
+                <view class="nav">纸质发票-普通发票</view>
+                <image style="display: {{nav == 2 ? 'block':'none'}}" src="{{rootUrl + 'select.png'}}"></image>
+            </view>
+            <view class="item {{nav == 3 ? 'border':''}}" data-nav="3" bindtap="changeNav">
+                <view class="nav">纸质发票-增值税专用发票</view>
+                <image style="display: {{nav == 3 ? 'block':'none'}}" src="{{rootUrl + 'select.png'}}"></image>
+            </view>
+        </view>
+        <view class="btn" bindtap="confirm">确认</view>
+    </view>
+</block>

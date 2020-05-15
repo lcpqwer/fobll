@@ -1,0 +1,217 @@
+/* pages/shop-details/shop-details.wxss */
+#shop-detail {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+page {
+    background-color: white;
+    color: #484848;
+}
+
+swiper {
+    height: 750rpx;
+    width: 100%;
+    border-bottom: 1rpx solid rgb(239, 239, 239);
+}
+
+swiper-item>image {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    text-align: center;
+}
+
+.price {
+    line-height: 110rpx;
+    font-size: 40rpx;
+    color: #f49a51;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-top: 10rpx;
+}
+
+.intr {
+    color: #666;
+    font-size: 25rpx;
+    line-height: 75rpx;
+}
+
+.detail {
+    text-align: center;
+}
+
+.detail image {
+    display: block
+}
+
+.nav {
+    color: #666;
+    font-size: 25rpx;
+    line-height: 120rpx;
+}
+
+.bottom {
+    width: 100%;
+    height: 100rpx;
+}
+
+.box {
+    height: 100rpx;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+.box view {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.box>view:nth-child(1) {
+    background-color: #ffab67;
+}
+
+.box>view:nth-child(2) {
+    background-color: #ef6c00;
+}
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* .mask>view {
+    width: 100%;
+    height: 100%;
+    position: relative
+} */
+.buy-box {
+    width: 700rpx;
+    padding: 25rpx 25rpx 40rpx 25rpx;
+    background-color: white;
+    border-top-left-radius: 25rpx;
+    border-top-right-radius: 25rpx;
+    position: fixed;
+}
+
+.buy-box .top {
+    padding-right: 25rpx;
+}
+
+.close-box {
+    width: 25rpx;
+    margin-left: auto;
+}
+
+.info-box {
+    display: flex;
+}
+
+.img-box {
+    width: 118rpx;
+    height: 118rpx;
+    border: 1rpx solid #bbb;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.shop-info {
+    margin-left: 25rpx;
+}
+
+.shop-info>view,  .shop-info>text{
+    line-height: 60rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+    width: 530rpx;
+}
+
+.shop-info>view:nth-child(1) {
+    color: #f28e3d;
+}
+
+.nav1 {
+    line-height: 60rpx;
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.s-box {
+    display: flex;
+}
+.s-box textarea {
+    width: 573rpx;
+    padding: 10rpx 20rpx;
+    border: 1rpx solid #999;
+    border-radius: 10rpx;
+    height: 100rpx;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #484848;
+}
+.re-box {
+    width: 36rpx;
+    margin-left: auto;
+    margin-top: 37rpx;
+}
+.num-box {
+    display: flex;
+    margin-top: 50rpx;
+    font-weight: bold;
+}
+.num-box>view:nth-child(1) {
+    font-size: 25rpx;
+    line-height: 50rpx;
+}
+.num {
+    display: flex;
+    height: 50rpx;
+    margin-left: auto;
+}
+.add, .minus {
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid rgb(164, 164, 164);
+  border-radius: 50%;
+  color: rgb(164, 164, 164);
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 10rpx;
+}
+/* .add, .minus, .num input {
+  position: absolute;
+  top: 50%;
+} */
+.num input{
+  width: 60rpx;
+  height: 40rpx;
+  background-color: #eeeeee;
+  right: 42rpx;    
+  border-radius: 10rpx;
+  text-align: center;
+  margin: 5rpx 10rpx;
+}
+.btn {
+    height: 80rpx;
+    width: 606rpx;
+    text-align: center;
+    line-height: 80rpx;
+    background-color: #f28e3d;
+    color: white;
+    font-size: 32rpx;
+    margin: 150rpx auto 0 auto;
+    border-radius: 10rpx; 
+}

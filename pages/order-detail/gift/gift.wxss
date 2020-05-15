@@ -1,0 +1,268 @@
+/* pages/order-detail/gift/gift.wxss */
+#pickDetail {
+    padding: 40rpx 40rpx 120rpx 40rpx;
+}
+
+.state, .rest {
+    line-height: 50rpx;
+}
+
+.state {
+    font-size: 35rpx;
+    font-weight: bold;
+}
+
+.rest {
+    font-size: 25rpx;
+    color: #757575;
+}
+
+.box {
+    padding: 0 40rpx;
+    border-radius: 20rpx;
+    background-color: white;
+    margin-top: 20rpx;
+}
+.state-box {
+    margin-top: 30rpx !important;
+}
+
+.state-box .top {
+    padding-top: 30rpx;
+    width: 100%;
+    border-bottom: 1rpx solid #e1e1e1;
+}
+
+.state-box .detail {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.state-box .c-num {
+    line-height: 75rpx;
+    font-size: 25rpx;
+    color: #535353;
+}
+
+.state-box .bottom {
+    padding: 20rpx !important;
+}
+
+.bottom {
+    display: flex;
+    padding: 15rpx 0;
+}
+
+.bottom .btn {
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border: 2rpx solid #8a8a8a;
+    border-radius: 10rpx;
+    color: #8a8a8a;
+    font-size: 25rpx;
+    margin-left: 20rpx;
+}
+
+.bottom>.btn:nth-child(1) {
+    margin-left: auto;
+}
+.info-box {
+    display: flex;
+    padding: 25rpx 0;
+}
+
+.img-box {
+    width: 140rpx;
+    height: 140rpx;
+    border: 1rpx solid #f4f4f4;
+    border-radius: 20rpx;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap-reverse;
+}
+
+/* 头像style start */
+
+.avatarItem--1 {
+    width: 100%;
+    height: 100%;
+}
+
+.avatarItem--2 {
+    width: 47%;
+    height: 47%;
+    margin: 1%;
+}
+
+.avatarItem--3 {
+    width: 30%;
+    height: 30%;
+    margin: 1%;
+}
+
+.img>image {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+}
+
+/* 头像style end */
+
+/* info */
+
+.info {
+    width: 420rpx;
+    margin-left: auto;
+}
+
+.info-title {
+    font-size: 30rpx;
+    font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-name {
+    width: 100%;
+    height: 60rpx;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    color: #454545;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /*要显示的行数*/
+    -webkit-box-orient: vertical;
+}
+
+.money {
+    width: 100%;
+    height: 50rpx;
+    display: flex;
+}
+
+.price {
+    font-size: 20rpx;
+    margin: auto 0;
+}
+
+.big {
+    font-size: 25rpx;
+}
+
+.ncolor {
+    color: #737171;
+}
+
+.total{
+    /* width: 590rpx; */
+    border-top: 1rpx solid #e1e1e1;
+    display: flex;
+    line-height: 80rpx;
+    font-size: 25rpx;
+}
+
+.total>view:last-child {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.money2>.total:first-child {
+    border: none
+}
+
+.invoice-box {
+    padding: 20rpx 40rpx;
+    display: flex;
+    font-size: 25rpx;
+    line-height: 40rpx;
+}
+.invoice-box>view:last-child{
+    margin-left: auto;
+    color: #b2b2b2
+}
+.order-info-box {
+    padding-top: 25rpx;
+    padding-bottom: 25rpx;
+    color: #484848;
+    font-size: 25rpx;
+}
+
+.order-info-box>.order-info {
+    margin-top: 30rpx;
+    display: flex;
+    font-size: auto;
+}
+.order-info-box>.order-info:nth-child(1) {
+    margin-top: 0;
+}
+
+.order-info .nav {
+    width: 130rpx;
+}
+
+.order-info .content {
+    width: 460rpx;
+}
+
+.order-info .content>view:nth-child(1) {
+    word-wrap: break-word;
+}
+
+.fix {
+    padding: 20rpx 40rpx !important;
+    width: 670rpx;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+}
+
+.bottom {
+    display: flex;
+    padding: 15rpx 0;
+}
+
+.bottom .btn {
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border: 2rpx solid #8a8a8a;
+    border-radius: 10rpx;
+    color: #8a8a8a;
+    font-size: 25rpx;
+    margin-left: 20rpx;
+}
+
+.bottom>.btn:nth-child(1) {
+    margin-left: auto;
+}
+
+.pick-box {
+    padding: 15rpx 40rpx;
+    line-height: 50rpx;
+    font-size: 25rpx;
+}
+
+.pick-nav {
+    font-weight: bold;
+}
+.pick-info {
+    color: #b2b2b2
+}
+.pick-info>text {
+    letter-spacing: 10rpx;
+}
+
+
+.btn1 {
+    color: #f28e3d !important;
+    border: 1rpx solid #f28e3d !important;
+}

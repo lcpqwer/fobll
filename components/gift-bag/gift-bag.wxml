@@ -1,0 +1,28 @@
+<!--components/gift-bag/gift-bag.wxml-->
+<view class="mask" mut-bind:tap="hide"></view>
+<view class="main">
+    <view class="nav">100元大礼包
+        <image src="{{rootUrl + 'close.png'}}" bindtap="hide" />
+    </view>
+    <view class="img-list">
+        <block wx:for="{{shopList}}" wx:key="index">
+            <view class="img-box">
+                <image src="{{item.order_img}}" mode="widthFix"></image>
+            </view>
+        </block>
+    </view>
+    <view class="num">
+        已选 {{shopList.length}} 件
+        <text decode>&ensp;</text> 最多可选6件
+    </view>
+    <view class="nav1">祝福语：</view>
+    <view class="s-box">
+        <textarea maxlength="30" fixed="{{true}}" show-confirm-bar="{{false}}" bindinput="input" value="{{sentiment}}" placeholder="输入祝福语"></textarea>
+        <view class="re-box" bindtap="changeSentiment">
+            <wImg src="refresh.png" mode="widthFix" />
+        </view>
+    </view>
+    <view class="btn" bindtap="createGift">立即生成</view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

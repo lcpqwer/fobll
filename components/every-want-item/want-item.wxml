@@ -1,0 +1,28 @@
+<!--components/shop-car-item/shop-car-item.wxml-->
+<view class="shop">
+    <view class="choose" bindtap="choose">
+        <view class="choose-box" hidden="{{shop.checked}}"></view>
+        <image class="choose-img" hidden="{{!shop.checked}}"  src="{{rootUrl+ 'select.png'}}"></image>
+    </view>
+    <view class="img">
+        <image src="{{shop.order_img}}" bindload="showImg" style="display: {{showImg ? 'black':'none'}}" mode="aspectFit"></image>
+    </view>
+    <view class="info">
+        <view class="title">{{shop.title}}</view>
+        <view class="type-box">
+            <text class="type" wx:if="{{shop.label.length>0}}">{{shop.label[0]}}</text>
+        </view>
+        <wxs module="price">
+            var format = function(price) {
+                ls = parseFloat(price).toFixed(2).split('.')
+                return ls
+            }
+            module.exports = {
+                format: format
+            }
+        </wxs>
+        <view class="money">
+            <text>￥{{price.format(shop.supply_price)[0]}}.<text class="small">{{price.format(shop.supply_price)[1]}}</text> </text>
+        </view>
+    </view>
+</view>

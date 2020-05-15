@@ -1,0 +1,109 @@
+<!--pages/user/user.wxml-->
+<view class="user-info" style="background-image: url({{rootUrl + 'user-back.png'}})">
+    <user-top color="white" id="userTop" />
+    <view class="info">
+        <block wx:if="{{hasUserInfo}}">
+            <image src="{{userInfo.avatarUrl}}"></image>
+            <view>
+                <view class="name">{{userInfo.nickName}}</view>
+                <text class="type">{{userIdent == 1?'采购':userIdent == 2?'普通':'个人'}}</text>
+            </view>
+        </block>
+        <view wx:else class="btn-box">
+            <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击登陆</button>
+            <!-- <button bindtap="getUserInfo">点击登陆</button> -->
+        </view>
+    </view>
+</view>
+<view class="box">
+    <view class="title">
+        <view class="right" bindtap="jump" data-url="/pages/my-order/myorder?nav=0">
+            <view class="center">查看全部订单</view>
+            <image src="{{rootUrl + 'push.png'}}"></image>
+        </view>
+        <view class="left">我的订单</view>
+    </view>
+    <view class="main">
+        <view bindtap="jump" data-url="/pages/my-order/myorder?nav=1">
+            <view class="img">
+                <image src="{{rootUrl + 'no-payment.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">待付款</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/my-order/myorder?nav=2">
+            <view class="img">
+                <image src="{{rootUrl + 'no-sendShop.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">待发货</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/my-order/myorder?nav=3">
+            <view class="img">
+                <image src="{{rootUrl + 'has-sendShop.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">已发货</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/my-order/myorder?nav=4">
+            <view class="img">
+                <image src="{{rootUrl + 'no-pickShop.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">待提货</view>
+        </view>
+    </view>
+</view>
+<view class="box box1">
+    <view class="main">
+        <view bindtap="jump" data-url="/pages/pick-shop/pick-shop">
+            <view class="img">
+                <image src="{{rootUrl + 'pick-shop.png'}}" mode="heightFix"></image>
+            </view>
+            <view class="text">提货</view>
+        </view>
+        <view bindtap="jump" data-url="{{userIdent == 1?'/pages/everyone-want/everyone-want':'/pages/my-want/my-want'}}">
+            <view class="img">
+                <image src="{{rootUrl + 'want.png'}}" mode="heightFix"></image>
+            </view>
+            <view class="text">{{userIdent == 1?'大家想要':'我的想要'}}</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/address/address">
+            <view class="img">
+                <image src="{{rootUrl + 'address.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">收货地址</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/my-pickShop/my-pickShop">
+            <view class="img">
+                <image src="{{rootUrl + 'my-pick.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">我的提货</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/apply/apply">
+            <view class="img">
+                <image src="{{rootUrl + 'apply.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">我的定制</view>
+        </view>
+        <view bindtap="jump" data-url="/pages/my-active/my-active">
+            <view class="img">
+                <image src="{{rootUrl + 'my-active.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">我的活动</view>
+        </view>
+        <view class="customer">
+            <view class="img">
+                <image src="{{rootUrl + 'customer.png'}}" mode="heightFix" lazy-load></image>
+            </view>
+            <view class="text">客服</view>
+            <button class="button" open-type="contact" size="mini">客服</button>
+            <!-- <button class="kefu" open-type="contact" size="mini" style="font-size:30rpx;position:relative;top:19rpx;">客服</button> -->
+            <!-- <view>
+                <view class="img">
+                    <image src="{{rootUrl + 'customer.png'}}" mode="heightFix" lazy-load></image>
+                </view>
+                <view class="text">客服</view>
+            </view>
+            <button class="button" open-type="contact" size="mini">客服</button> -->
+        </view>
+    </view>
+</view>
+<Marked id="marked" />
+<Loading id="load" />

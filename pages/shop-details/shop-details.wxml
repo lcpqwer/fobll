@@ -1,0 +1,75 @@
+<!--pages/shop-details/shop-details.wxml-->
+<view id="shop-detail">
+    <swiper indicator-dots indicator-active-color="rgb(248,198,158)" indicator-color="rgb(248,198,158,.3)" autoplay>
+        <block wx:for="{{imgs}}" wx:key="index">
+            <block wx:if="{{item.type == 1}}">
+                <swiper-item>
+                    <image src="{{item.img}}" webp="true" mode="aspectFit"></image>
+                </swiper-item>
+            </block>
+        </block>
+    </swiper>
+    <view class="info">
+        <view class="price">¥{{shop.supply_price}}</view>
+        <text class="name" decode>{{shop.brand + '&ensp;&ensp;' + shop.title}}</text>
+        <view class="intr">{{shop.brief_introduction}}</view>
+    </view>
+    <view class="detail">
+        <text class="nav" decode>——————&ensp;&ensp;详情&ensp;&ensp; ——————</text>
+        <block wx:for="{{imgs}}" wx:key="index">
+            <block wx:if="{{item.type == 2}}">
+                <!-- <wImg src="{{item.img}}" state="noRoot" mode="widthFix" /> -->
+                <image src="{{item.img}}" mode="widthFix"></image>
+            </block>
+        </block>
+    </view>
+    <view class="bottom" wx:if="{{userIdent == 1}}">
+        <view class="box">
+            <view bindtap="addToCar" wx:if="{{shop.type != 3}}">加入购物车</view>
+            <view bindtap="{{shop.type == 3?'judge':'showBuy'}}">{{shop.type == 3?'立即购买':'生成礼包'}}</view>
+        </view>
+    </view>
+    <view class="bottom" wx:elif="{{userIdent == 2 && shop.type != 3}}">
+        <view class="box">
+            <view bindtap="addToWant">添加想要</view>
+        </view>
+    </view>
+    <block>
+        <view class="mask" style="display: {{buy ? 'block':'none'}}" bindtap="hideBuy"></view>
+        <view class="buy-box" style="display: {{buy ? 'block':'none'}};bottom: {{bottom1}}">
+            <view class="top">
+                <view class="close-box" bindtap="hideBuy">
+                    <wImg src="close.png" mode="widthFix" />
+                </view>
+                <view class="info-box">
+                    <view class="img-box">
+                        <wImg src="{{shop.order_img}}" state="noRoot" height="100%" mode="aspectFit" />
+                    </view>
+                    <view class="shop-info">
+                        <view>¥{{shop.supply_price}}</view>
+                        <text decode>{{shop.brand + '&ensp;&ensp;' + shop.title}}</text>
+                    </view>
+                </view>
+                <view class="nav1">祝福语</view>
+                <view class="s-box">
+                    <textarea bindfocus="focus" bindblur="blur" bindinput="input" placeholder="请输入祝福语" value="{{sentiment}}" adjust-position="{{false}}" maxlength="30" fixed="true" show-confirm-bar="{{false}}"></textarea>
+                    <view class="re-box">
+                        <wImg src="refresh.png" mode="widthFix"  bindtap="changeSentiment" />
+                    </view>
+                </view>
+                <!-- <view class="num-box">
+                    <view>购买数量</view>
+                    <view class="num">
+                        <image src="{{rootUrl + 'minus.png'}}" class="minus" lazy-load></image>
+                        <input type="number" value="1"></input>
+                        <image src="{{rootUrl + 'add.png'}}" class="add" lazy-load></image>
+                    </view>
+                </view> -->
+            </view>
+            <view class="btn" bindtap="createGift">立即生成</view>
+        </view>
+
+    </block>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

@@ -1,0 +1,18 @@
+<!--pages/want/want.wxml-->
+<view id="want" wx:if="{{!shopList || shopList.length > 0}}">
+    <view class="main">
+        <!-- <view class="nav">我的想要</view> -->
+        <block wx:for="{{shopList}}" wx:key="index">
+            <want-item shop="{{item}}" id="{{'shop'+item.Id}}" bind:choose="choose" index="{{index}}" bind:touchStart="touchStart" bind:touchEnd="touchEnd" bind:delWant="delWant" />
+        </block>
+    </view>
+    <LoadMore state="{{state}}" />
+</view>
+<view wx:else class="empty-box">
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

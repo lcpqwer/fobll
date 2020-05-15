@@ -1,0 +1,4 @@
+/* components/widthFix-image/widthFix-image.wxss */
+image {
+  width: 100%;
+}

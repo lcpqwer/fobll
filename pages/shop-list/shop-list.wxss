@@ -1,0 +1,4 @@
+/* pages/shop-list/shop-list.wxss */
+#shop-list {
+    padding: 0 40rpx 40rpx
+}

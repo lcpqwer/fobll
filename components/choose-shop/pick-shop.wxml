@@ -1,0 +1,54 @@
+<!--components/choose-shop/pick-shop.wxml-->
+<view class="fixed">
+    <view class="title">
+        <view class="nav">提货</view>
+        <view class="left" bindtap="back">
+            <image src="{{rootUrl + 'back.png'}}"></image>
+        </view>
+        <image src="{{rootUrl + 'close.png'}}" class="close" bindtap="back"></image>
+    </view>
+    <view class="shop-box">
+        <view class="check-box">
+            <image class="check" hidden="{{checkIndex != index}}" src="{{rootUrl+'select.png'}}" mode="widthFix"></image>
+        </view>
+        <view class="img-box">
+            <image src="{{shop.order_img}}" mode="aspectFit" lazy-load/>
+        </view>
+        <view class="info">
+            <view class="name">{{shop.title}}</view>
+            <view class="type-box">
+                <text class="type">{{shop.label}}</text>
+            </view>
+            <view class="num">x1</view>
+        </view>
+    </view>
+    <view class="address-box">
+        <view class="nav">填写提货地址</view>
+        <view class="main">
+            <view class="item">
+                <view class="nav">联 系 人</view>
+                <input class="text" placeholder="请输入姓名" value="{{name}}" placeholder-class="pstyle" data-index="0" bindinput="inputVal"></input>
+            </view>
+            <view class="item">
+                <view class="nav">联系电话</view>
+                <input class="text" placeholder="请输入手机号" value="{{phone}}" placeholder-class="pstyle" data-index="1" bindinput="inputVal"></input>
+            </view>
+            <view class="item">
+                <view class="nav">城市/区域</view>
+                <picker mode="multiSelector" value="{{cityIndex}}" range="{{cityArray}}" range-key="name" bindcolumnchange="change" bindchange="changeVal">
+                    <view class="text {{city == ''?'pstyle':''}}" style="margin-left: 20rpx;">
+                        {{city == ''?'请选择城市区域':city}}
+                        <image src="{{rootUrl+'push.png'}}" class="push"></image>
+                    </view>
+                </picker>
+            </view>
+            <view class="item">
+                <view class="nav">详细地址</view>
+                <input class="text" placeholder="请输入详细地址" value="{{address}}" placeholder-class="pstyle" data-index="2" bindinput="inputVal"></input>
+            </view>
+            <view class="btn" bindtap="pickShop">立即提货</view>
+        </view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

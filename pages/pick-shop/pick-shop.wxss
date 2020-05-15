@@ -1,0 +1,119 @@
+/* pages/pick-shop/pick-shop.wxss */
+.box {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; /* 重点二 */
+}
+.fixed {
+    position: fixed;
+    width: 710rpx;
+    left: 20rpx;
+    bottom: 20rpx;
+    background-color: white;
+    border-radius: 30rpx;
+    height: 500rpx;
+    display: flex;
+    flex-direction: column;
+}
+.scan-box {
+    width: 233rpx;
+    height: 233rpx;
+    border-radius: 50%;
+    background-color: #f28e3d;
+    display: flex;
+    margin: auto auto 0 auto;
+}
+
+.scan {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.scan image {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 0 auto;
+}
+
+.scan text {
+    font-size: 35rpx;
+    margin-top: 20rpx;
+}
+
+.bottom {
+    padding: 40rpx 40rpx;
+    display: flex;
+}
+
+.bottom .item {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom>.item:last-child {
+    margin-left: auto;
+}
+
+.item image {
+    margin: 0 auto;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.is {
+    width: 52rpx !important;
+}
+
+.item text {
+    font-size: 25rpx;
+    margin-top: 20rpx;
+}
+
+.input-box {
+    margin: auto auto 40rpx auto;
+}
+.input {
+    width: 590rpx;
+    height: 67rpx;
+    display: flex;
+    box-sizing: border-box;
+    border: 2rpx solid #484848;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.input>input {
+    height: 100%;
+    width: 380rpx;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+
+.input>.btn {
+    height: 67rpx;
+    width: 160rpx;
+    text-align: center;
+    line-height: 67rpx;
+    border-top-right-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    background-color: #f28e3d;
+    color: white;
+    font-size: 30rpx;
+    font-weight: bold;
+    position: absolute;
+    right: -2rpx;
+    top: -2rpx;
+}
+.error {
+    font-size: 25rpx;
+    color: red;
+    margin-top: 15rpx;
+    height: 25rpx;
+    line-height: 25rpx;
+}
+
+.error-border {
+    border: 2rpx solid red;
+}

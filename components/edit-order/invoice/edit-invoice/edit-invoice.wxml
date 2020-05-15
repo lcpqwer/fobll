@@ -1,0 +1,59 @@
+<!--components/invoice/eidt-invoice/edit-invoice.wxml-->
+<block wx:if="{{show}}">
+    <view class="mask" bindtap="destory"></view>
+    <view class="box">
+        <view class="title">
+            <view class="nav">开具发票</view>
+            <image src="{{rootUrl + 'close.png'}}" class="close" bindtap="destory"></image>
+        </view>
+        <view class="main box1">
+            <view class="item">
+                <view class="nav">发票类型</view>
+                <view class="text" bindtap="chooseiType">
+                    <view class="content">{{invoice.type == '1' ? '电子发票': invoice.type == '2'? '纸质发票-普通发票':'纸质发票-增值税专用发票'}}</view>
+                    <image src="{{rootUrl + 'push.png'}}" class="right push"></image>
+                </view>
+            </view>
+            <view class="item">
+                <view class="nav">抬头类型</view>
+                <view class="text">
+                    <view class="two" data-ltype="1" bindtap="changeLtype">
+                        <image class="t-left t-left-img" wx:if="{{invoice.title.type == 1}}" src="{{rootUrl + 'select.png'}}"></image>
+                        <view class="t-left" wx:else></view>
+                        <view class="t-right">个人或事业单位</view>
+                    </view>
+                    <view class="two" data-ltype="2" bindtap="changeLtype">
+                        <image class="t-left t-left-img" wx:if="{{invoice.title.type == 2}}" src="{{rootUrl + 'select.png'}}"></image>
+                        <view class="t-left" wx:else></view>
+                        <view class="t-right">企业</view>
+                    </view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="nav">发票抬头</view>
+                <view class="text" bindtap="lookUpShow">
+                    <!-- <view class="content" style="color: {{lookUp == '抬头名称' ? '#b1b1b1':'#484848'}}">{{lookUp}}</view> -->
+                    <input class="content" disabled value="{{invoice.title.invoice_rise}}" placeholder="抬头名称" placeholder-class="pstyle"></input>
+                    <image src="{{rootUrl + 'push.png'}}" class="right push"></image>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="item">
+                <view class="nav">发票内容</view>
+                <image src="{{rootUrl + 'remind.png'}}" class="remind"></image>
+                <input class="content" disabled value="商品详情"></input>
+                <image class="push right" src="{{rootUrl + 'push.png'}}"></image>
+            </view>
+        </view>
+        <view class="main" bindtap="noInvoice">
+            <view class="item">
+                <view class="nav">本次不开具发票，继续下单</view>
+                <image class="push" src="{{rootUrl + 'push.png'}}"></image>
+            </view>
+        </view>
+        <view class="btn" bindtap="openInvoice">确认</view>
+    </view>
+</block>
+<invoice-type id="in-type" bind:back="show" invoice="{{invoiceDate}}" bind:confirm="changeiType" />
+<look-up-name id="look-up-name" titleList="{{titleList}}" type="{{invoice.title.type}}" bind:back="show" bind:confirm="changeLookUpName" bind:addOne="addOne" bind:updateOne="updateOne" />

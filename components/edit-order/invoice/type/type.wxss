@@ -1,0 +1,96 @@
+/* components/edit-order/invoice/type/type.wxss */
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+}
+
+.box {
+    background-color: white;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    padding: 0 40rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 670rpx;
+}
+
+.title {
+    height: 120rpx;
+    /* display: flex; */
+    border-bottom: 1rpx solid #ebebeb;
+    position: relative;
+    text-align: center;
+}
+
+.title .nav {
+    font-size: 35rpx;
+    margin: auto 0;
+    font-weight: bold;
+    line-height: 120rpx;
+}
+
+.title .close {
+    width: 25rpx;
+    height: 25rpx;
+    /* margin: auto 0 auto auto; */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%)
+}
+.title .left {
+    position: absolute;
+    left: 0;
+    width: 15rpx;
+    height: 100%;
+    display: flex;
+    top: 0;
+}
+.title .left image{
+    width: 15rpx;
+    height: 30rpx;
+    margin: auto 0;
+}
+.main {
+    margin: 10rpx 0;
+}
+.main .item {
+    display: flex;
+    height: 130rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    border: 1rpx solid #d5d5d5;
+    padding: 0 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.item .nav {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.main .item image {
+    margin: auto 0 auto auto;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.border {
+    border: 1rpx solid #f28e3d !important;
+}
+.btn {
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: white;
+    background-color: #f28e3d;
+    border-radius: 10rpx;
+    margin: 40rpx auto;
+}

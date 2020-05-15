@@ -1,0 +1,26 @@
+<!--components/edit-order/invoice/look-up/look-up.wxml-->
+<block wx:if="{{show}}">
+    <view class="mask" bindtap="hide"></view>
+    <view class="box">
+        <view class="title">
+            <view class="nav">发票抬头选择</view>
+            <view class="left" bindtap="back">
+                <image src="{{rootUrl + 'back.png'}}"></image>
+            </view>
+            <image src="{{rootUrl + 'close.png'}}" class="close" bindtap="hide"></image>
+        </view>
+        <view class="main">
+            <block wx:for="{{titleList}}" wx:key="index" wx:if="{{item.type ==  type}}">
+                <view class="item {{nav == index ? 'border':''}}" data-index="{{index}}" bindtap="confirm">
+                    <view class="info">
+                        <view class="name">{{item.invoice_rise}}</view>
+                        <view class="type">{{type == 1 ? '个人抬头':'企业抬头'}}</view>
+                    </view>
+                    <view class="edit" data-index="{{index}}" bindtap="edit">编辑</view>
+                </view>
+            </block>
+        </view>
+        <view class="btn" bindtap="add">添加新抬头</view>
+    </view>
+</block>
+<edit id="edit" type="{{type}}" wx:if="{{edit}}" bind:cancel="cancelAdd" bind:confirm="addOne" bind:update="updateOne" />

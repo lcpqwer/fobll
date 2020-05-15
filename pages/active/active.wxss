@@ -1,0 +1,114 @@
+/* pages/active/active.wxss */
+
+#activity {
+    padding: 40rpx 40rpx 0 40rpx;
+}
+
+#activity>view {
+    margin-top: 40rpx;
+}
+
+/* -------------------- */
+
+swiper {
+    width: 100%;
+    margin-top: auto;
+    /* height: 780rpx; */
+    height: 68%;
+    max-height: 780rpx;
+    overflow: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+swiper-item {
+    overflow: block;
+}
+
+.box {
+    height: 100%;
+    width: 480rpx;
+    border-radius: 30rpx;
+    background-color: white;
+    margin: 0 auto;
+    /* overflow: hidden; */
+    position: relative;
+    /* margin-top: 50rpx; */
+}
+
+.have-sginup {
+    width: 150rpx;
+    position: absolute;
+    top: 60%;
+    right: 40rpx;
+    opacity: 0.5;
+}
+
+.slide-image {
+    width: 100%;
+    height: 53%;
+    border-radius: 30rpx 30rpx 0 0;
+}
+
+.zoom-out {
+    transform: scale(0.9);
+    transition: all 0.7s ease-out 0s;
+}
+
+.zoom-in {
+    /* transform: scale(0.9); */
+    transition: all 0.7s ease-in 0s;
+}
+
+.info {
+    padding: 0 30rpx;
+    font-size: 23rpx;
+    line-height: 50rpx;
+}
+
+.title {
+    padding: 0 30rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+}
+
+.money {
+    color: rgb(244, 163, 78);
+}
+
+.btn-box {
+    width: 100%;
+    height: 15%;
+    position: fixed;
+    bottom: 0;
+}
+.btn-box>view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.btn {
+    height: 60rpx;
+    width: 240rpx;
+    font-size: 30rpx;
+    color: white;
+    background-color: rgb(242, 142, 61);
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    margin: 0 auto;
+}
+.btns {
+    height: 60rpx;
+    width: 240rpx;
+    font-size: 30rpx;
+    color: white;
+    background-color: gray;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    margin: 0 auto;
+}

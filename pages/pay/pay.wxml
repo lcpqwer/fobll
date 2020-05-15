@@ -1,0 +1,152 @@
+<!--pages/pay/pay.wxml-->
+<view class="top">
+    <wxs module="formatTime">
+        var format = function(s) {
+            var h = 0;
+            var m = 0;
+            if (s > 60) {
+                m = parseInt(s / 60);
+                s = parseInt(s % 60);
+                if (m > 60) {
+                    h = parseInt(m / 60);
+                    m = parseInt(m % 60);
+                }
+            };
+            if (h < 10) {
+                h = '0' + h;
+            };
+            if (m < 10) {
+                m = '0' + m;
+            };
+            if (s < 10) {
+                s = '0' + s;
+            };
+            return h+':'+m+':'+s
+        }
+
+
+
+        module.exports = {
+            format: format
+        }
+    </wxs>
+    <view class="time">
+        支付剩余时间 {{formatTime.format(time)}}
+    </view>
+    <view class="price">
+        <text class="blod">¥</text>
+        <text class="big blod">{{price.format(totalPrice)[0]}}</text>.{{price.format(totalPrice)[1]}}
+    </view>
+</view>
+<view class="box-warpper">
+    <view class="box shop-box">
+        <image class="logo" src="{{rootUrl + 'logo.png'}}"></image>
+        <block wx:if="{{type == 1}}">
+            <view class="shop-info" wx:for="{{orderList}}" wx:key="index">
+                <view class="img-box">
+                    <view wx:for="{{item.shop_list}}" wx:for-index="shopIndex" wx:key="shopIndex" wx:for-item="shopItem" class="img {{item.shop_list.length>4 ? 'avatarItem--3':item.shop_list.length>1?'avatarItem--2':'avatarItem--1'}}">
+                        <image src="{{shopItem.order_img}}"></image>
+                    </view>
+                </view>
+                <view class="info-box">
+                    <view class="info-title">{{item.greeting}}</view>
+                    <view class="info-name">
+                        <block wx:for="{{item.shop_list}}" wx:for-item="shopItem" wx:for-index="shopIndex" wx:key="shopIndex">
+                            {{shopItem.title}}
+                        </block>
+                    </view>
+                    <view class="money">
+                        <view class="price">
+                            ¥
+                            <text class="big">{{price.format(item.price)[0]}}</text>.{{price.format(item.price)[1]}}
+                        </view>
+                        <view class="num">{{item.number}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <block wx:for="{{orderList}}" wx:key="index">
+                <view class="dis-box">
+                    <view class="dis-img">
+                        <image src="{{item.order_img}}" mode="aspectFit"></image>
+                    </view>
+                    <view class="dis-info-box">
+                        <view class="dis-title">{{item.title}}</view>
+                        <view>
+                            <wxs src="../edit-order/price.wxs" module="price" />
+                            <text class="dis-price">¥{{price.format(item.supply_price)[0]}}.<text class="small">{{price.format(item.supply_price)[1]}}</text></text>
+                        </view>
+                        <view>
+                            <view class="dis-num">1</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </view>
+</view>
+<view class="way-box">
+    <!-- <view class="way" data-way="0" bindtap="chooseWay">
+        <image class="way-logo" src="{{rootUrl + 'way-fee.png'}}"></image>
+        <view class="main">
+            <view class="content">
+                <view>会费支付</view>
+                <view>会费余额：¥3800.00</view>
+            </view>
+            <image wx:if="{{way == 0}}" class="way-check" src="{{rootUrl + 'select.png'}}"></image>
+        </view>
+    </view> -->
+    <view class="way" data-way="1" bindtap="chooseWay">
+        <image class="way-logo" src="{{rootUrl + 'way-wx.png'}}"></image>
+        <view class="main noBorder">
+            <view class="content">
+                <view>微信支付</view>
+            </view>
+            <image wx:if="{{way == 1}}" class="way-check" src="{{rootUrl + 'select.png'}}"></image>
+        </view>
+    </view>
+    <!-- <view bindtap="fillIn">
+        <view class="way transfer">
+            <image class="way-logo" src="{{rootUrl + 'way-yl.png'}}"></image>
+            <view class="main noBorder">
+                <view class="content">
+                    <view>公对公转账</view>
+                </view>
+                <image wx:if="{{way == 2}}" class="way-check" src="{{rootUrl + 'select.png'}}"></image>
+            </view>
+        </view>
+        <view class="ac-info-box" wx:if="{{way == 2}}">
+            <view>付款名称：李传平</view>
+            <view>付款账号：123356874234567</view>
+        </view>
+    </view> -->
+</view>
+<view class="sub" bindtap="confirm">确认支付</view>
+<block wx:if="{{input}}">
+    <view class="mask" bindtap="cancelFillIn"></view>
+    <view class="edit-box">
+        <view class="title">
+            <view class="nav">填写账号</view>
+            <view class="img-box" bindtap="cancelFillIn">
+                <image src="{{rootUrl + 'close.png'}}"></image>
+            </view>
+
+        </view>
+        <view class="edit-main">
+            <view class="input-box">
+                <view class="nav">付款名称：</view>
+                <input class="input" placeholder="{{payAccount}}" placeholder="请填写付款名称" data-index="1" bindinput="inputVal" placeholder-class="pstyle"></input>
+            </view>
+            <view class="input-box">
+                <view class="nav">付款账号：</view>
+                <input class="input" type="number" value="{{payAccount}}" placeholder="请填写付款名称" data-index="2" bindinput="inputVal" placeholder-class="pstyle"></input>
+            </view>
+        </view>
+        <view class="input-sub" bindtap="confirmFillIn">
+            确认
+        </view>
+    </view>
+</block>
+<Loading id="load" />
+<Marked id="marked" />

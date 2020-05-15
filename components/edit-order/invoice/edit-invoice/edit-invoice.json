@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "invoice-type": "/components/edit-order/invoice/type/type",
+        "look-up-name": "/components/edit-order/invoice/look-up/look-up"
+    }
+}

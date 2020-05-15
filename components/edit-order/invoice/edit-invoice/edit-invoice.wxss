@@ -1,0 +1,156 @@
+/* components/invoice/eidt-invoice/edit-invoice.wxss */
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+}
+
+.box {
+    background-color: white;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    padding: 0 40rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 670rpx;
+}
+
+.title {
+    height: 120rpx;
+    /* display: flex; */
+    border-bottom: 1rpx solid #ebebeb;
+    position: relative;
+    text-align: center;
+}
+
+.title .nav {
+    font-size: 35rpx;
+    margin: auto 0;
+    font-weight: bold;
+    line-height: 120rpx;
+}
+
+.title .close {
+    width: 25rpx;
+    height: 25rpx;
+    /* margin: auto 0 auto auto; */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%)
+}
+
+.main {
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    border: 1rpx solid #d5d5d5;
+    padding: 0 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.box1 {
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.main .item {
+    display: flex;
+    height: 80rpx;
+}
+
+.item .nav {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.item .text {
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    font-size: 25rpx;
+}
+
+.text .push {
+    margin: auto 0 auto 12rpx;
+    width: 15rpx;
+    height: 30rpx;
+}
+
+.text view {
+    margin: auto 0;
+}
+
+.text .content {
+    font-size: 25rpx;
+    margin: auto 0 auto auto;
+    text-align: right;
+}
+
+.item .content {
+    font-size: 25rpx;
+    margin: auto 12rpx auto auto;
+    text-align: right;
+}
+
+.item .right {
+    margin-left: 12rpx !important;
+}
+
+.text .two {
+    height: 100%;
+    display: flex;
+}
+
+.two .t-left {
+    width: 30rpx;
+    height: 30rpx;
+    border: 1rpx solid #b2b2b2;
+    border-radius: 50%;
+    margin-right: 10rpx;
+    background-repeat: no-repeat;
+    background-size: cover; /* 重点二 */
+    box-sizing: border-box;
+}
+
+.t-left-img {
+    border: none !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.text .two:last-child {
+    margin-left: 40rpx;
+}
+
+.checked {
+    width: 30rpx;
+    height: 30rpx;
+    border: 1rpx solid #b2b2b2;
+    border-radius: 50%;
+}
+.item>.push {
+    width: 15rpx;
+    height: 30rpx;
+    margin: auto 0 auto auto;
+}
+.remind {
+    width: 30rpx;
+    height: 30rpx;
+    margin: auto 0 auto 10rpx;
+}
+.btn {
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: white;
+    background-color: #f28e3d;
+    border-radius: 10rpx;
+    margin: 60rpx auto;
+}

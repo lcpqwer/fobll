@@ -1,0 +1,43 @@
+<!--components/shop_car_100/shop_car_100.wxml-->
+<scroll-view wx:if="{{!shopList || shopList.length > 0}}" scroll-y bindscrolltolower="lower" class="shop-warpper">
+    <view style="height: 20rpx;"></view>
+    <shop-car-item wx:for="{{shopList}}" wx:key="id" id="{{'shop'+item.shopId}}" bind:select="selectedOne" bind:touchStart="touchStart" bind:touchEnd="touchEnd" bind:delShop="delShop" shop="{{item}}" index="{{index}}" />
+    <LoadMore state="{{state}}" id="loadMore" />
+    <view class="bottom-box"></view>
+</scroll-view>
+<view wx:else class="empty-box">
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>
+<view class="bottom" hidden="{{!shopList || shopList.length<1}}">
+    <view class="choose-box" bindtap="allSelected">
+        <view wx:if="{{!allChecked}}" class="choose"/>
+        <image wx:else class="choose choose-img" src="{{rootUrl+ 'select.png'}}"></image>
+        <text>全选</text>
+    </view>
+    <view class="money">
+        合计：
+        <text>¥</text>
+        <text class="big">{{dateModule.total(selectList)[0]}}</text>
+        <text>.{{dateModule.total(selectList)[1]}}</text>
+    </view>
+    <view class="order" bindtap="placeOrder">立即下单</view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />
+<wxs module="dateModule">
+    var total = function(ls) {
+        var sum = 0;
+        for (var i = 0; i < ls.length; i++) {
+            sum += ls[i].price
+        }
+        var str = sum.toFixed(2)
+        var price = str.split('.')
+        return price
+    }
+    module.exports = {
+        total: total
+    }
+</wxs>

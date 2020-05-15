@@ -1,0 +1,35 @@
+<!--components/user-top/user-top.wxml-->
+<view wx:if="{{userIdent != 0 && userIdent != -1}}" class="top" style="text-align: {{center}}" bindtap="detail">
+    <view class="info" style="color: {{color}};">会员单位：{{company.name}}</view>
+    <view wx:if="{{userIdent == 1}}" class="info money" style="color: {{color}}">会费余额：
+        <text class="num">
+            <text class="small">¥</text>
+            <text>{{price.format(company.fee)[0]}}.</text>
+            
+        <text class="small">{{price.format(company.fee)[1]}}</text>
+        </text>
+    </view>
+    
+</view>
+<view wx:elif="{{hasUserInfo}}" class="no-compay" style="color: {{color}}">
+    您还未加入公司
+    <text decode>&ensp;</text>
+    <block wx:if="{{hasUserInfo}}">
+        <navigator class="login" url="/pages/login/login">立即绑定</navigator>
+    </block>
+</view>
+<view wx:else class="no-compay" style="color: {{color}}">
+    您还未登录
+    <text decode>&ensp;</text>
+    <text class="login" bindtap="toUser">去登陆</text>
+</view>
+<image class="guide" src="{{rootUrl + 'guide.png'}}"></image>
+<wxs module="price">
+    var format = function(price) {
+        ls = parseFloat(price).toFixed(2).split('.')
+        return ls
+    }
+    module.exports = {
+        format:format
+    }
+</wxs>

@@ -1,0 +1,26 @@
+<!-- components/shop-car-item/shop-car-item.wxml -->
+<view class="shop" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" bindtap="toDetail">
+    <view class="shop-box" style="transform: translateX({{tran+'rpx'}});">
+        <view class="info-box">
+            <view class="choose" catchtap="choose">
+                <view wx:if="{{!shop.checked}}" class="choose-box"></view>
+                <image wx:else class="choose-box choose-img" src="{{rootUrl+ 'select.png'}}"></image>
+            </view>
+            <view class="img">
+                <image src="{{shop.order_img}}" bindload="showImg" style="display: {{showImg ? 'black':'none'}};height: 100%" mode="aspectFit"></image>
+            </view>
+            <view class="info">
+                <view class="title">{{shop.title}}</view>
+                <view class="type-box">
+                    <text class="type" wx:if="{{shop.label_list.length > 0}}">{{shop.label_list[0].name}}</text>
+                </view>
+                <view class="money">
+                    <text>¥{{shop.int_price}}.<text class="small">{{shop.decimal}}</text> </text>
+                </view>
+            </view>
+        </view>
+        <view class="del" catchtap="delShop">
+            <text>删\n除</text>
+        </view>
+    </view>
+</view>

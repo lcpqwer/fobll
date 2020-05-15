@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "user-top": "/components/user-top/user-top",
+    "activity-item": "/components/activity-item/activity-item"
+  },
+  "navigationBarTitleText": "会员活动"
+}

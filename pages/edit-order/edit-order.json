@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "distribution": "/components/edit-order/distribution/distribution",
+      "newAddress": "/components/edit-order/new-address/new-address",
+      "invoice": "/components/edit-order/invoice/edit-invoice/edit-invoice"
+  }
+}

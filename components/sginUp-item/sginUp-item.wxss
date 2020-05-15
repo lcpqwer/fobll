@@ -1,0 +1,38 @@
+/* components/sginUp-item/sginUp-item.wxss */
+
+.box {
+  width: 670rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  background-color: white;
+  border-radius: 20rpx;
+}
+
+.box>view {
+  padding: 0 25rpx;
+}
+
+.top {
+  padding-top: 25rpx !important;
+  display: table-cell; /*按照单元格的样式显示元素*/
+  vertical-align: bottom; /*底对齐*/
+}
+
+.name {
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 115rpx;
+  display: inline-block
+}
+
+.phone {
+  font-size: 25rpx;
+  display: inline-block
+}
+
+.position {
+  font-size: 30rpx;
+  padding-top: 25rpx !important;
+  padding-bottom: 25rpx !important;
+  color: rgb(106,106,106);
+}

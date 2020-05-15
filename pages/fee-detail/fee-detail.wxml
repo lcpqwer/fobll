@@ -1,0 +1,21 @@
+<!--pages/fee-detail/fee-detail.wxml-->
+<view id="fee">
+    <user-top id="userTop" />
+    <view class="listing">
+        <view class="title">会费清单</view>
+        <view class="item">
+            会费新增：{{detail.increase}}元
+        </view>
+        <view class="item">
+            会费支出：{{detail.decrease}}元
+        </view>
+    </view>
+    <view class="rule-title">会费规则</view>
+    <text class="text">
+        一、会员资格\n  企业会员，企业注册，成为福抱抱会员。 企业的会员资格不设有效期。\n 二、会费来源 \n 企业的采购返还，直接返还进企业会费帐户。 试运营期间，直接返还企业采购付款额的5%。 试运营期结束后，按新的会费规则执行。\n  三、会费使用\n 企业会费，可用于以下用途：\n  1、抵扣企业采购成本，但，本次返还的金额，不可抵扣本次福利采购的成本；\n  2、福利抽奖，企业可选择相应奖品，用于员工福利抽奖。但，本次返还的金额，不可用于本次福利采购的抽奖活动； \n 3、会员活动。为活跃企业会员的商务社交和员工激励，福抱抱组织各项会员活动，企业可报名，委派员工参加，活动费用，从企业会费中扣除。
+    </text>
+    <view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

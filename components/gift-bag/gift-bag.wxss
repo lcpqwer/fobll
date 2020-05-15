@@ -1,0 +1,97 @@
+/* components/gift-bag/gift-bag.wxss */
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0
+}
+
+.main {
+    width: 590rpx;
+    padding: 0 40rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20rpx;
+}
+
+.nav {
+    line-height: 130rpx;
+    text-align: center;
+    font-size: 35rpx;
+    font-weight: bold;
+    width: 100%;
+    position: relative;
+}
+
+.nav>image {
+    width: 25rpx;
+    height: 25rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 0;
+}
+
+.img-box {
+    width: 170rpx;
+    height: 170rpx;
+    background-color: #f4f4f4;
+    border-radius: 20rpx;
+    display: inline-block;
+    margin-bottom: 20rpx;
+}
+
+.img-list>.img-box:nth-child(2), .img-list>.img-box:nth-child(3),
+.img-list>.img-box:nth-child(5), .img-list>.img-box:nth-child(6) {
+    margin-left: 40rpx;
+}
+
+.num {
+    color: rgb(159, 159, 159);
+    font-size: 25rpx;
+    line-height: 70rpx;
+}
+
+/* 祝福语 */
+.nav1 {
+    line-height: 60rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.s-box {
+    display: flex;
+}
+.s-box textarea {
+    width: 495rpx;
+    padding: 10rpx 20rpx;
+    border: 1rpx solid #999;
+    border-radius: 10rpx;
+    height: 100rpx;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #484848;
+}
+.re-box {
+    width: 36rpx;
+    margin-left: auto;
+    margin-top: 37rpx;
+}
+
+.btn {
+    width: 240rpx;
+    height: 60rpx;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: white;
+    background-color: #f28e3d;
+    margin: 40rpx auto;
+    border-radius: 10rpx;
+    font-weight: bold;
+}

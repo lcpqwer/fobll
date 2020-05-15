@@ -1,0 +1,49 @@
+<!--pages/sgin-up/sgin-up.wxml-->
+<!-- <text>pages/sgin-up/sgin-up.wxml</text> -->
+<view id="sgin-up">
+  <user-top id="userTop" center="center" />
+  <view class="title">{{active.data.name}}</view>
+  <view class="main">
+    <view class="form">
+      <view class="form-item">
+        <view>姓名：</view>
+        <input placeholder-style="color: #d0d0d0" placeholder="请填写参与活动者姓名" value="{{name}}" data-type="name" bindinput="input"></input>
+      </view>
+      <view class="form-item">
+        <view>部门：</view>
+        <input placeholder-style="color: #d0d0d0" placeholder="请填写参与活动者所在部门" value="{{department}}" data-type="department" bindinput="input"></input>
+      </view>
+      <view class="form-item">
+        <view>职位：</view>
+        <input placeholder-style="color: #d0d0d0" placeholder="请填写参与活动者所在职位" value="{{position}}" data-type="position" bindinput="input"></input>
+      </view>
+      <view class="form-item">
+        <view>电话：</view>
+        <input placeholder-style="color: #d0d0d0" placeholder="请填写参与活动者手机号码" maxlength="11" type="number" value="{{phone}}" data-type="phone" bindinput="input"></input>
+      </view>
+    </view>
+    <view class="info">
+      <view>活动费用:￥{{active.data.single_amount}}/人</view>
+      <view>会员余额抵扣: {{active.data.single_amount}}元</view>
+      <view>活动剩余名额: {{active.data.surplus_quota}}人</view>
+      <view>已报名人数: {{active.user_count}}人</view>
+    </view>
+  </view>
+  <view class="btn-box">
+    <!-- <view class="btn" bindtap="addSgin">新增报名</view> -->
+    <view class="btn" bindtap="submit">提交</view>
+  </view>
+  <view class="more">
+    更多活动
+  </view>
+  <block wx:for="{{activeList}}" wx:key="index">
+        <view class="active" style="background-image: url({{item.banner_img}})" data-id="{{item.Id}}" bindtap="toDetail">
+            <view class="title-box">
+                <view class="title">{{item.name}}</view>
+            </view>
+        </view>
+    </block>
+
+</view>
+<Marked id="marked" />
+<Loading id="load" />

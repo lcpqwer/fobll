@@ -1,0 +1,4 @@
+/* pages/my-pickShop/my-pickShop.wxss */
+#pick-shop {
+  padding: 20rpx 40rpx 40rpx 40rpx;
+}

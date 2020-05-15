@@ -1,0 +1,5 @@
+<!--components/no-auth/no-auth.wxml-->
+<view class="mask"></view>
+<view class="no-auth">
+    
+</view>

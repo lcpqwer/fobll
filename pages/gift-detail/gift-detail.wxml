@@ -1,0 +1,44 @@
+<!--pages/gift-detail/gift-detail.wxml-->
+<view class="shopList">
+    <view class="shop-num">共 {{gift.shop_list.length}} 件商品</view>
+    <block wx:for="{{gift.shop_list}}">
+        <view class="shop-item">
+            <view class="shop-box">
+                <view class="img-box">
+                    <image src="{{item.order_img}}" mode="aspectFit"></image>
+                </view>
+                <view class="title-box">
+                    <view class="title">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="bottom-box"></view>
+<view class="bottom-main">
+    <view class="gift-info">
+        <view class="nav">祝福语：</view>
+        <view class="greet-box">
+            <view class="greet">{{gift.greeting}} </view>
+        </view>
+        <view class="num-box">
+            <view class="add" catchtap="addOne">
+                <image src="{{rootUrl + 'add.png'}}"></image>
+            </view>
+            <input class="num" type="number" value="{{gift.number}}"></input>
+            <view class="minus" catchtap="minusOne">
+                <image src="{{rootUrl + 'minus.png'}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="place-order">
+        <view class="num">共 {{gift.shop_list.length}} 件商品</view>
+        <wxs src="../edit-order/price.wxs" module="price" />
+        <view class="price">总计：
+            <text>¥<text class="big">{{price.format(gift.price)[0]}}</text>.{{price.format(gift.price)[1]}}</text>
+        </view>
+        <view class="sub">立即购买</view>
+    </view>
+</view>
+<Loading id="load" />
+<Marked id="marked" />

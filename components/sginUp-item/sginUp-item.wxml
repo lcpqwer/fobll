@@ -1,0 +1,10 @@
+<!--components/sginUp-item/sginUp-item.wxml-->
+<view class="box">
+  <view class="top">
+    <view class="name">{{item.name}}</view>
+    <view class="phone">{{item.phone}}</view>
+  </view>
+  <view class="position">
+    {{item.department}} {{item.position}}
+  </view>
+</view>

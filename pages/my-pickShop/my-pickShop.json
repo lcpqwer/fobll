@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "pickshop-item": "/components/pickshop-item/pickshop-item",
+    "loadding-more":"/components/load-more/load-more"
+  },
+  "navigationBarTitleText": "我的提货"
+}

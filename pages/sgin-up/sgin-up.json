@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "user-top": "/components/user-top/user-top",
+    "sginUp-item": "/components/sginUp-item/sginUp-item",
+    "marked":"/components/marked/marked"
+  },
+  "navigationBarTitleText": "活动报名"
+}

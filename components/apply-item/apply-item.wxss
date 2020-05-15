@@ -1,0 +1,35 @@
+/* components/apply-item/apply-item.wxss */
+
+.time {
+    margin-top: 20rpx;
+    padding: 10rpx 0;
+    font-size: 25rpx;
+    color: #484848;
+}
+
+.main {
+    padding: 25rpx 40rpx;
+    background-color: white;
+    border-radius: 20rpx;
+    color: #484848;
+}
+
+.top>view:nth-child(1) {
+    font-size: 22rpx;
+    float: right;
+}
+
+.top>view:nth-child(2) {
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.bottom {
+    display: flex;
+    font-size: 25rpx;
+    margin-top: 30rpx;
+}
+
+.bottom>view:nth-child(1) {
+    width: 175rpx;
+}

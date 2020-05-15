@@ -1,0 +1,16 @@
+<!--components/my-order/all-order/all-order.wxml-->
+<scroll-view class="box" wx:if="{{!orderList || orderList.length > 0}}" scroll-y bindscrolltolower="lower" hidden="{{hidden}}">
+    <view class="top"></view>
+    <block wx:for="{{orderList}}" wx:key="index">
+        <item order="{{item}}" index="{{index}}" bind:cancelOrder="cancelOrder" bind:show="showLoad" bind:hide="hideLoad" />
+    </block>
+    <LoadMore state="{{state}}" />
+</scroll-view>
+<view hidden="{{hidden}}" wx:else class="empty-box">
+    <view class="top"></view>
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>
+<Loading id="load"/>

@@ -1,0 +1,79 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/pick-shop/pick-shop",        
+        "pages/gift-detail/gift-detail",
+        "pages/pay/pay",
+        "pages/user_pay/user_pay",        
+        "pages/user/user",
+        "pages/logistics/logistics",
+        "pages/order-detail/delivery/delivery",
+        "pages/order-detail/gift/gift",
+        "pages/pick-code/pick-code",
+        "pages/my-pickShop/my-pickShop",
+        "pages/my-order/myorder",
+        "pages/edit-order/edit-order",
+        "pages/shop-car/shop-car",
+        "pages/pickShop-detail/pickShop-detail",
+        "pages/custom/custom",
+        "pages/shop-list/shop-list",
+        
+        "pages/my-active/my-active",
+        "pages/active/active",
+        "pages/address/address",
+        "pages/everyone-want/everyone-want",
+        "pages/shop-details/shop-details",
+        "pages/fee-detail/fee-detail",
+        "pages/apply/apply",
+        "pages/sgin-up/sgin-up",
+        "pages/activity-detail/activity-detail",
+        "pages/service/service",
+        "pages/my-want/my-want",
+        "pages/cost-detail/cost-detail"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "福抱抱",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#000",
+        "selectedColor": "#f28e3d",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "static/home.png",
+                "selectedIconPath": "static/selected-home.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/active/active",
+                "iconPath": "static/activity.png",
+                "selectedIconPath": "static/selected-activity.png",
+                "text": "活动"
+            },
+            {
+                "pagePath": "pages/shop-car/shop-car",
+                "iconPath": "static/shop-car.png",
+                "selectedIconPath": "static/selected-shop-car.png",
+                "text": "购物车"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "iconPath": "static/user.png",
+                "selectedIconPath": "static/selected-user.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "usingComponents": {
+        "Marked": "/components/marked/marked",
+        "Loading": "/components/loading/loading",
+        "LoadMore": "/components/load-more/load-more"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,7 @@
+<!--pages/apply/apply.wxml-->
+<view id="apply">
+  <block wx:for="{{allShop.list}}" wx:key="index">
+    <apply-item item="{{item}}" />
+  </block>
+  <loadding-more state="{{allShop.state}}" />
+</view>

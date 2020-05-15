@@ -1,0 +1,40 @@
+<!--pages/logistics/logistics.wxml-->
+<view class="box">
+    <view class="info">
+        <view>国内承运人：丹鸟</view>
+        <view>
+            <text>运单号</text>：234532526457
+            <image src="{{rootUrl + 'copy.png'}}"></image>
+        </view>
+    </view>
+    <view class="info-box">
+        <block wx:for="{{info}}" wx:key="index">
+            <view class="item">
+                <view class="time">
+                    <view>
+                        <view>{{one.splitTime(item.time)[0]}}</view>
+                        <view>{{one.splitTime(item.time)[1]}}</view>
+                    </view>
+                    <view class="node"></view>
+                </view>
+                <view class="content">
+                    {{item.context}}
+                    <view wx:if="{{index==0 || index == one.len(info)}}" class="cover {{index == 0? 'top':'bottom'}}"></view>
+                </view>
+            </view>
+        </block>
+
+    </view>
+</view>
+<wxs module="one">
+    var splitTime = function(time) {
+        return time.split(' ')
+    };
+    var len = function(list){
+        return list.length-1
+    };
+    module.exports = {
+        splitTime: splitTime,
+        len: len
+    }
+</wxs>

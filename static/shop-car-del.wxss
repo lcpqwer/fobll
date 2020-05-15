@@ -1,0 +1,37 @@
+/* 购物车删除样式 */
+
+.confirm-box {
+    height: 80rpx;
+}
+
+.confirm {
+    width: 630rpx;
+    position: fixed;
+    top: 0;
+    background-color: #d8d8d8;
+    z-index: 10;
+    color: #f28e3d;
+    display: flex;
+}
+
+.confirm text {
+    line-height: 80rpx;
+    font-size: 40rpx;
+    margin-left: auto;
+    margin-right: 20rpx;
+}
+
+.set-box {
+    width: 120rpx;
+    height: 90rpx;
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 790rpx;
+}
+
+.set-box image {
+    width: 50rpx;
+    height: 50rpx;
+    margin: auto;
+}

@@ -1,0 +1,44 @@
+<!--components/shop_car_100/shop_car_100.wxml-->
+<scroll-view scroll-y class="shop-warpper" wx:if="{{!giftList || giftList.length > 0}}" bindscrolltolower="lower">
+    <view style="height: 20rpx;"></view>
+    <block wx:for="{{giftList}}" wx:key="index">
+        <shopItem gift="{{item}}" index="{{index}}" id="{{'shop'+index}}" bind:select="selectedOne" bind:touchStart="touchStart" bind:touchEnd="touchEnd" bind:delGift="delGift" bind:add="addOne" bind:minus="minusOne" bind:inputNumber="inputNumber" />
+    </block>
+    <LoadMore state="{{state}}" id="loadMore" />
+    <view class="bootom-box"></view>
+</scroll-view>
+<view wx:else class="empty-box">
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>
+<view class="bottom" hidden="{{!giftList || giftList.length<1}}">
+    <view class="choose-box" bindtap="allSelected">
+        <view class="choose" wx:if="{{!allChecked}}" />
+        <image class="choose choose-img" wx:else src="{{rootUrl+ 'select.png'}}"></image>
+        <text>全选</text>
+    </view>
+    <view class="money">
+        合计：
+        <text>¥</text>
+        <text class="big">{{price.total(selectList)[0]}}</text>
+        <text>.{{price.total(selectList)[1]}}</text>
+    </view>
+    <view class="order" bindtap="placeOrder">立即下单</view>
+</view>
+<!-- <giftBag style="display: {{giftBag ? 'black':'none'}}" bind:hide="hideGift" shopList="{{selectList}}" /> -->
+<Loading id="load" />
+<Marked id="marked" />
+<wxs module="price">
+    var total = function(ls) {
+        var sum = 0;
+        for (var i = 0; i < ls.length; i++) {
+            sum += parseFloat(ls[i].price)*ls[i].number
+        }
+        return sum.toFixed(2).split('.')
+    }
+    module.exports = {
+        total: total
+    }
+</wxs>

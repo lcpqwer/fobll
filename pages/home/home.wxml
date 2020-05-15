@@ -1,0 +1,124 @@
+<!--pages/home/home.wxml-->
+<view class="home">
+<view class="padd1">
+<!-- <share /> -->
+<user-top id="userTop" />
+</view>
+    <view class="padd">
+    <swiper wx:if="{{banners && banners.length>0}}" class="swiper-box" indicator-dots indicator-color="rgba(144,144,144,0.7)" indicator-active-color="rgba(255,255,255)" autoplay circular>
+        <swiper-item wx:for="{{banners}}" wx:key="index">
+            <swiperItem banner="{{item.banner_img}}" bindtap="bannerDetail" data-id="{{item.id}}" />
+        </swiper-item>
+    </swiper>
+    </view>
+    
+    <view class="nav-box">
+        <view class="nav-item {{nav == 1 ? 'select': ''}}">
+            <text data-index="1" bindtap="changeNav">福利采购</text>
+        </view>
+        <view class="nav-item {{nav == 0 ? 'select': ''}}">
+            <text data-index="0" bindtap="changeNav">礼品采购</text>
+        </view>
+        <view class="nav-item {{nav == 2 ? 'select': ''}}">
+            <text data-index="2" bindtap="changeNav" decode="{{true}}">样 品 库</text>
+        </view>
+        <view class="nav-item {{nav == 3 ? 'select': ''}}">
+            <text data-index="3" bindtap="changeNav">全部产品</text>
+        </view>
+    </view>
+    <!-- <view class="nav-box">
+        <text data-index="1" bindtap="changeNav">福利采购</text>
+        <text data-index="1" bindtap="changeNav">礼品采购</text>
+        <text data-index="1" bindtap="changeNav">样品库</text>
+        <text data-index="1" bindtap="changeNav">全部产品</text>
+    </view> -->
+    <!-- 福利采购 -->
+    <view class="padd">
+        <view class="table-main" hidden="{{nav != 1}}">
+        <view class="class-item" data-price="100" bindtap="shopList">
+            <image src="{{imgs.logo_img1}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">100.</text>00</view>
+        </view>
+        <view class="class-item" data-price="150" bindtap="shopList">
+            <image  src="{{imgs.logo_img2}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">150.</text>00</view>
+        </view>
+        <view class="class-item" data-price="200" bindtap="shopList">
+            <image  src="{{imgs.logo_img3}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">200.</text>00</view>
+        </view>
+        <view class="class-item" data-price="300" bindtap="shopList">
+            <image src="{{imgs.logo_img4}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">300.</text>00</view>
+        </view>
+        <view class="class-item" data-price="500" bindtap="shopList">
+            <image  src="{{imgs.logo_img5}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">500.</text>00</view>
+        </view>
+        <view class="class-item" bindtap="custom">
+            <image  src="{{imgs.logo_img6}}" mode="aspectFill"></image>
+            <view class="num text">
+                <text class="big">福利定制</text>
+                <image src="/static/top_3.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 礼品采购 -->
+    <view class="table-main" hidden="{{nav != 0}}">
+        <view class="class-item" data-price="100" bindtap="shopList">
+            <image src="{{imgs.gift_img1}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">100.</text>00</view>
+        </view>
+        <view class="class-item" data-price="150" bindtap="shopList">
+            <image  src="{{imgs.gift_img2}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">150.</text>00</view>
+        </view>
+        <view class="class-item" data-price="200" bindtap="shopList">
+            <image  src="{{imgs.gift_img3}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">200.</text>00</view>
+        </view>
+        <view class="class-item" data-price="300" bindtap="shopList">
+            <image  src="{{imgs.gift_img4}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">300.</text>00</view>
+        </view>
+        <view class="class-item" data-price="500" bindtap="shopList">
+            <image  src="{{imgs.gift_img5}}" mode="aspectFill"></image>
+            <view class="num">¥
+                <text class="big">500.</text>00</view>
+        </view>
+        <view class="class-item" bindtap="custom">
+            <image  src="{{imgs.gift_img6}}" mode="aspectFill"></image>
+            <view class="num text">
+                <text class="big">礼品定制</text>
+                <image src="/static/top_3.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 折扣专场 -->
+    <view class="table-main" hidden="{{nav != 2}}">
+        <block wx:for="{{discount.list}}" wx:key="index">
+            <shop-item shop="{{item}}" />
+        </block>
+        <LoadMore state="{{discount.state}}" />
+    </view>
+    <!-- 全部商品 -->
+    <view class="table-main" hidden="{{nav != 3}}">
+        <block wx:for="{{allShop.list}}" wx:key="index">
+            <shop-item shop="{{item}}" />
+        </block>
+        <LoadMore state="{{allShop.state}}" />
+    </view>
+    </view>
+</view>
+
+<Loading id="load" />
+<Marked id="marked" />

@@ -1,0 +1,29 @@
+/* pages/fee-detail/fee-detail.wxss */
+#fee {
+  padding: 40rpx;
+}
+.listing {
+  padding: 40rpx;
+  border: 1rpx solid #979797;
+  border-radius: 15rpx;
+  margin-top: 60rpx;
+}
+.title {
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-bottom: 5rpx;
+}
+.item {
+  margin-top: 25rpx;
+  font-size: 27rpx;
+}
+.rule-title {
+  font-size: 35rpx;
+  margin-top: 45rpx;
+  font-weight: bold
+}
+.text {
+  text-indent: 54rpx;
+  font-size: 27rpx;
+  margin-top: 30rpx;
+}

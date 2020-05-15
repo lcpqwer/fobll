@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "shops": "/components/choose-shop/choose-shop"
+  }
+}

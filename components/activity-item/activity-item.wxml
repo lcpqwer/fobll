@@ -1,0 +1,2 @@
+<!--components/activity-item/activity-item.wxml-->
+<image src="{{rootUrl + active.img}}" bindload="showImg" mode="widthFix" style="display: {{showImg ? 'black' : 'none'}}" lazy-load></image>

@@ -1,0 +1,28 @@
+<!--pages/activity-detail/activity-detail.wxml-->
+<view id="ac-detail">
+    <image src="{{active.data.cover_img}}" mode="aspectFill"></image>
+    <view class="title">{{active.data.name}}</view>
+    <view class="box">
+        <view class="detail">活动详情：{{active.data.content}}</view>
+        <view class="info">活动时间：{{active.data.time}}</view>
+        <view class="info">活动地址：{{active.data.address}}</view>
+        <view class="info">剩余名额：{{active.data.surplus_quota}}</view>
+        <view class="info" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" wx:if="{{active.data.type==1}}">
+            已报名：{{active.user_count}}人 (
+            <text wx:for="{{active.user}}">{{item.name}} </text> )
+        </view>
+        <view class="info money">活动经费：¥{{active.data.single_amount}}/人</view>
+    </view>
+    <view class="btn" bindtap="sginUp" data-id="active.data.Id"> {{active.data.type==1? '新增报名':'立即报名'}}</view>
+    <view class="sgin-up" wx:if="active.data.type==1">
+        <!-- <widthFix-image  src="have-sginup.png" mode="widthFix"></widthFix-image> -->
+        <image wx:if="{{active.data.type == 1}}" src="{{rootUrl + 'have-sginup.png'}}" mode="widthFix"></image>
+
+    </view>
+    <view class="sgin-up1">
+        已报名（{{active.user_count}}人）
+    </view>
+    <block wx:for="{{active.user}}" wx:if="{{active.data.type==1}}" wx:key="index">
+        <sginUp-item item="{{item}}" />
+    </block>
+</view>

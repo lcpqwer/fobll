@@ -1,0 +1,17 @@
+<!--pages/my-active.wxml-->
+<view wx:if="{{!activeList || activeList.length>0}}" id="my-active">
+    <block wx:for="{{activeList}}" wx:key="index">
+        <view class="active" style="background-image: url({{item.cover_img}})" data-id="{{item.Id}}" bindtap="toDetail">
+            <view class="title-box">
+                <view class="title">{{item.name}}</view>
+            </view>
+        </view>
+    </block>
+    <LoadMore state="{{state}}" />
+</view>
+<view wx:else class="empty-box">
+    <view class="empty">
+        <image src="{{rootUrl + 'kong.png'}}"></image>
+        <text>空空如也</text>
+    </view>
+</view>

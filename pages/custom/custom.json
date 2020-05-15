@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "apply-item": "/components/apply-item/apply-item"
+  },
+  "navigationBarTitleText": "自定义"
+}

@@ -1,0 +1,36 @@
+/* components/my-order/no-send/no-send.wxss */
+.box {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.top {
+    /* height: 215rpx; */
+    height: 110rpx;
+}
+
+.empty-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.empty {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.empty image {
+    width: 160rpx;
+    height: 134rpx;
+}
+
+.empty text {
+    line-height: 40rpx;
+    font-size: 35rpx;
+    margin: 0 auto;
+    margin-top: 40rpx;
+    font-weight: bold;
+}

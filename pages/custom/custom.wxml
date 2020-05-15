@@ -1,0 +1,54 @@
+<!--pages/custom/custom.wxml-->
+<view id="custom">
+    <view class="input-item">
+        <view class="title">礼品名称：</view>
+        <input placeholder-class="pColor" value="{{name}}" bindinput="inputName" placeholder="请填写想要的产品名称"></input>
+        <!-- <view class="must">*</view> -->
+    </view>
+    <view class="input-item">
+        <view class="title">礼品品牌：</view>
+        <input placeholder-class="pColor" value="{{brand}}" bindinput="inputBrand" placeholder="请填写想要的产品品牌"></input>
+        <!-- <view class="must">*</view> -->
+    </view>
+    <view class="input-item">
+        <view class="title">礼品预算：</view>
+        <input placeholder-class="pColor" value="{{money}}" type="number" bindinput="inputMoney" placeholder="请填写想要的产品预算"></input>
+        <view class="must">*</view>
+    </view>
+    <view class="input-item">
+        <view class="title">需要数量：</view>
+        <input placeholder-class="pColor" value="{{number}}" type="number" bindinput="inputNumber" placeholder="请填写想要的产品数量"></input>
+        <view class="must">*</view>
+    </view>
+    <view class="input-item">
+        <view class="title">发放时间：</view>
+        <view class="section">
+            <!-- <view class="section__title">日期选择器</view> -->
+            <picker mode="date" value="{{grant_time}}" start="2015-09-01" end="2090-09-01" bindchange="bindDateChange">
+                <view class="picker">{{grant_time}}</view>
+            </picker>
+        </view>
+        <!-- <input placeholder-class="pColor" value="{{grant_time}}" bindinput="inputTime" placeholder="请填写想要的产品名称"></input> -->
+        <view class="must">*</view>
+    </view>
+    <view class="input-item">
+        <view class="title">联系电话：</view>
+        <input placeholder-class="pColor" type="number" maxlength="11" value="{{contacts_phone}}" bindinput="inputPhone" placeholder="请填写联系电话"></input>
+        <view class="must">*</view>
+    </view>
+    <view class="input-item">
+        <text class="title" decode="{{true}}">联&ensp;系&ensp;人：</text>
+        <input placeholder-class="pColor" value="{{contacts_name}}" bindinput="inputConactName" placeholder="请填写联系人"></input>
+        <view class="must">*</view>
+    </view>
+    <view class="detail">
+        <view>注:带“*”为必填项</view>
+        <view>提交成功后我们在3-5个工作日内联系您</view>
+    </view>
+    <view class="btn" bindtap="submitForm">提交</view>
+    <view class="nav">历史申请</view>
+    <block wx:for="{{list}}" wx:key="index">
+        <apply-item item="{{item}}" color="#a6a6a6"/>
+    </block>
+</view>
+<Marked id="marked" />

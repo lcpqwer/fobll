@@ -1,0 +1,29 @@
+<!--pages/my-order/myorder.wxml-->
+<view class="fixed">
+    <!-- <view class="search-box">
+        <image src="{{rootUrl + 'search.png'}}"></image>
+        <input confirm-type="search" placeholder="搜索订单" placeholder-class="pstyle" bindconfirm="search"></input>
+    </view> -->
+    <view class="nav-box">
+        <view class="nav" data-nav="0" bindtap="changeNav">
+            <text class="{{nav == 0 ? 'select':''}}">全部</text>
+        </view>
+        <view class="nav" data-nav="1" bindtap="changeNav">
+            <text class="{{nav == 1 ? 'select':''}}">待付款</text>
+        </view>
+        <view class="nav" data-nav="2" bindtap="changeNav">
+            <text class="{{nav == 2 ? 'select':''}}">待发货</text>
+        </view>
+        <view class="nav" data-nav="3" bindtap="changeNav">
+            <text class="{{nav == 3 ? 'select':''}}">已发货</text>
+        </view>
+        <view class="nav" data-nav="4" bindtap="changeNav">
+            <text class="{{nav == 4 ? 'select':''}}">待提货</text>
+        </view>
+    </view>
+</view>
+<all hidden="{{nav != 0}}" id="allOrder" />
+<noPayment hidden="{{nav != 1}}" id="noPayOrder" />
+<noSend hidden="{{nav != 2}}" id="noSendOrder" />
+<hasSend hidden="{{nav != 3}}" id="hasSnedOrder" />
+<noPick hidden="{{nav != 4}}" id="noPickOrder" />

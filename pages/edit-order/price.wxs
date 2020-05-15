@@ -1,0 +1,76 @@
+/**
+ * 格式化价格
+ * @method format
+ * @param {String} price 商品价格
+ * @return {Array} ls [价格整数部分,价格小数部分]
+ */
+var format = function(price) {
+    ls = parseFloat(price).toFixed(2).split('.')
+    return ls
+}
+
+/**
+ * 商品总价
+ * @method total
+ * @param {Array} ls 商品列表
+ * @return {Number} sum 商品总价
+ */
+var total = function(type, ls) {
+    // console.log('type ===',type)
+    var sum = 0
+    for (var i = 0; i < ls.length; i++) {
+        if (type == 2){
+            sum += parseFloat(ls[i].supply_price)
+        }else {
+            // console.log('price === ' + ls[i].price)
+            sum += parseFloat(ls[i].price)
+        }
+        
+    }
+    // console.log('sum === '+sum)
+    return sum.toFixed(2)
+}
+
+/**
+ * 会费折扣
+ * @method feeDiscount
+ * @param {Array} ls 商品列表
+ * return {Number} discount 会费折扣
+ */
+var feeDiscount = function(type, ls){
+    return '0.00'
+}
+
+/**
+ * 会费返还
+ * @method feeRefund
+ * @param {Array} ls 商品列表
+ * return {Number} refund
+ */
+var feeRefund = function(type, ls){
+    var sum = total(type, ls)
+    var refund = parseFloat(sum) * 0.06
+    return parseInt(refund).toFixed(2)
+}
+
+/**
+ * 格式化total
+ * @method formatTotal
+ * @param {Array} ls 商品列表
+ * @return {Array} sumList [价格整数部分,价格小数部分]
+ */
+function formatTotal(type, ls){
+    var sum = total(type, ls)
+    var discount = feeDiscount(type, ls)
+    var sum1 = parseFloat(sum) - parseFloat(discount)
+    return sum1.toFixed(2).split('.')
+}
+
+
+module.exports = {
+    format: format,
+    total: total,
+    feeDiscount: feeDiscount,
+    feeRefund: feeRefund,
+    formatTotal: formatTotal
+}

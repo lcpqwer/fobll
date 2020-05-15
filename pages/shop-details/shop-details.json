@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "wImg": "/components/widthFix-image/widthFix-image"
+  },
+  "navigationBarTitleText": "商品详情"
+}

@@ -1,0 +1,40 @@
+<!--pages/pick-shop/pick-shop.wxml-->
+<view class="box" style="background-image: url({{pickBack}})"></view>
+<view wx:if="{{show}}" class="fixed">
+    <block wx:if="{{way == 0}}">
+        <view class="scan-box">
+            <view class="scan" bindtap="scanCode">
+                <image src="{{rootUrl + 'scan.png'}}"></image>
+                <text>扫码提货</text>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="input-box">
+            <view class="input {{error ? 'error-border':''}}">
+                <input placeholder="请输入兑换码" bindinput="codeInput"></input>
+                <view class="btn" bindtap="codeCheck">确认</view>
+            </view>
+            <view class="error">
+                <!-- <block wx:if="{{error}}">
+                    您输入的兑换码有误，请重新输入
+                </block> -->
+            </view>
+        </view>
+    </block>
+    <view class="bottom">
+        <view class="item" data-way="0" bindtap="changeWay">
+            <image wx:if="{{way == 0}}" src="{{rootUrl + 'scan-selected.png'}}"></image>
+            <image wx:else src="{{rootUrl + 'scan.png'}}"></image>
+            <text>扫码兑换</text>
+        </view>
+        <view class="item" data-way="1" bindtap="changeWay">
+            <image wx:if="{{way == 0}}" src="{{rootUrl + 'input.png'}}"></image>
+            <image wx:else class="is" src="{{rootUrl + 'input-selected.png'}}"></image>
+            <text>手输兑换</text>
+        </view>
+    </view>
+</view>
+<shops wx:if="{{choose}}" shopList="{{shopInfo.shopList}}" count="{{shopInfo.count}}" date="{{shopInfo.date}}" ordid="{{shopInfo.ordid}}" id="shops" bind:back="show" bind:destory="destory" />
+<Loading id="load" />
+<Marked id="marked" />

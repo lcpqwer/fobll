@@ -1,0 +1,48 @@
+<!--pages/login/login.wxml-->
+<view id="login">
+    <view class="logo">
+        <root-img src="logo.png" mode="widthFix" />
+    </view>
+    <view class="form-item">
+        <view class="title">
+            企业名称
+        </view>
+        <input value="{{name}}" bindinput="inputName"></input>
+    </view>
+    <view class="form-item">
+        <view class="title">
+            企业地址
+        </view>
+        <input value="{{address}}" bindinput="inputAddress"></input>
+    </view>
+    <view class="form-item">
+        <view class="title">
+            账号
+        </view>
+        <input value="{{account}}" bindinput="inputAccount"></input>
+    </view>
+    <view class="form-item">
+        <view class="title">
+            密码
+        </view>
+        <input type="password" value="{{password}}" bindinput="inputPassword"></input>
+    </view>
+    <view class="form-item">
+        <view class="title">
+            确认密码
+        </view>
+        <input type="password" value="{{password_second}}" bindinput="inputPassword1"></input>
+    </view>
+    <view class="btn" bindtap="userLogin">注册</view>
+    <!-- <view class="no-acount">
+        <view>还没有账号</view>
+        <view bindtap="toHome" class="to-home">
+            <view>想先看看</view>
+            <view class="img">
+                <root-img src="to-home.png" mode="widthFix" />
+            </view>
+        </view>
+    </view> -->
+</view>
+<Loading id="load" />
+<Marked id="marked" />

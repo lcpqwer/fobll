@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "shop-car-item": "/components/shop-car-item/shop-car-item",
+    "giftBag": "/components/gift-bag/gift-bag",
+    "shop100": "/components/shop_car_100/shop_car_100",
+    "shop150": "/components/shop_car_150/shop_car_150",
+    "shop200": "/components/shop_car_200/shop_car_200",
+    "shop300": "/components/shop_car_300/shop_car_300",
+    "shop500": "/components/shop_car_500/shop_car_500",
+    "shopDiscount": "/components/shop_car_discount/shop_car_discount",
+    "shopGift": "/components/shop_car_gift/shop_car_gift"
+  },
+  "navigationBarTitleText": "购物车"
+}

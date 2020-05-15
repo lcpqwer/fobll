@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "user-top": "/components/user-top/user-top",
+    "swiperItem": "/components/swiper-item/swiper-item",
+    "shop-item": "/components/shop-item/shop-item",
+    "share": "/components/canvas/index"
+  }
+}

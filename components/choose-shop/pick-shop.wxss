@@ -1,0 +1,173 @@
+/* components/choose-shop/pick-shop.wxss */
+
+.fixed {
+    position: fixed;
+    width: 630rpx;
+    left: 20rpx;
+    bottom: 20rpx;
+    background-color: white;
+    border-radius: 30rpx;
+    padding: 0 40rpx;
+}
+
+.title {
+    height: 130rpx;
+    /* display: flex; */
+    position: relative;
+    text-align: center;
+}
+
+.title .nav {
+    font-size: 35rpx;
+    margin: auto 0;
+    font-weight: bold;
+    line-height: 130rpx;
+}
+
+.title .close {
+    width: 25rpx;
+    height: 25rpx;
+    /* margin: auto 0 auto auto; */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.title .left {
+    position: absolute;
+    left: 0;
+    width: 15rpx;
+    height: 100%;
+    display: flex;
+    top: 0;
+}
+
+.title .left image {
+    width: 15rpx;
+    height: 30rpx;
+    margin: auto 0;
+}
+
+.shop-box {
+    display: flex;
+    margin-bottom: 20rpx;
+}
+
+.check-box {
+    width: 45rpx;
+    height: 140rpx;
+    display: flex;
+}
+
+.check {
+    height: 25rpx;
+    width: 25rpx;
+    margin: auto 0;
+    border: 1rpx solid #7d7d7d;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover; /* 重点二 */
+}
+.check-box image {
+    border: none;
+    width: 28rpx;
+}
+
+.img-box {
+    width: 140rpx;
+    height: 140rpx;
+    background-color: #f7f7f7;
+    border-radius: 20rpx;
+}
+
+.img-box image {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    width: 420rpx;
+    margin-left: auto;
+}
+
+.name {
+    font-size: 27rpx;
+    font-weight: bold;
+    height: 45rpx;
+    line-height: 45rpx;
+}
+
+.type-box {
+    height: 50rpx;
+    position: relative;
+}
+
+.type {
+    font-size: 20rpx;
+    height: 35rpx;
+    border: 1rpx solid rgb(250, 208, 174);
+    line-height: 35rpx;
+    padding: 0 8rpx;
+    border-radius: 10rpx;
+    color: rgb(250, 208, 174);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.num {
+    font-size: 25rpx;
+    color: #737171
+}
+.address-box>.nav {
+    font-size: 35rpx;
+    font-weight: bold;
+    line-height: 120rpx;
+    border-bottom: 1rpx solid #ebebeb
+}
+/*  */
+.main .item {
+    height: 80rpx;
+    display: flex;
+    line-height: 80rpx;
+}
+
+.main .item .nav {
+    color: #a4a4a4;
+    font-size: 28rpx;
+}
+
+.main .item .text {
+    width: 485rpx;
+    margin-left: auto;
+    height: 100%;
+    border-bottom: 1rpx solid #ebebeb;
+    font-size: 30rpx;
+    display: flex;
+    font-weight: bold;
+}
+
+.pstyle {
+    color: #cbcbcb !important;
+    font-weight: normal !important;
+}
+
+.push {
+    width: 15rpx;
+    height: 30rpx;
+    margin: auto 0 auto auto;
+}
+
+.btn {
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: white;
+    background-color: #f28e3d;
+    border-radius: 10rpx;
+    margin: 40rpx auto;
+    font-weight: bold;
+    font-size: 30rpx;
+}
